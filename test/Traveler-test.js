@@ -10,11 +10,10 @@ describe('Traveler Test', () => {
   // declare variables here using 'let'
 
   beforeEach(() => {
-    traveler = new Traveler(data)
+    traveler = new Traveler(allTravelersData);
     // assign variables here
 
   });
-
 
   it.skip('should be a function',() => {
     expect(Traveler).to.be.a('function');
