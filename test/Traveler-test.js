@@ -1,11 +1,6 @@
 import { expect } from 'chai';
 import Traveler from '../src/Traveler';
-import {
-  allTravelersData,
-  travelerTrips1,
-  travelerTrips2,
-  allTripsData,
-} from './sample-data';
+import { allTravelersData } from '../src/data/sample-travelers-data';
 
 describe('Traveler', () => {
   let traveler1;
