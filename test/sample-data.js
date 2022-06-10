@@ -26,6 +26,63 @@ const allTravelersData = [
   }
 ];
 
+const travelerTrips1 = [
+  {
+    id: 117,
+    userID: 1,
+    destinationID: 28,
+    travelers: 3,
+    date: "2021/01/09",
+    duration: 15,
+    status: "approved",
+    suggestedActivities: [ ]
+  }
+];
+
+const travelerTrips2 = [
+  {
+    id: 91,
+    userID: 5,
+    destinationID: 5,
+    travelers: 1,
+    date: "2020/04/29",
+    duration: 16,
+    status: "approved",
+    suggestedActivities: [ ]
+  },
+  {
+    id: 103,
+    userID: 5,
+    destinationID: 35,
+    travelers: 2,
+    date: "2020/10/19",
+    duration: 20,
+    status: "approved",
+    suggestedActivities: [ ]
+  },
+  {
+    id: 163,
+    userID: 5,
+    destinationID: 48,
+    travelers: 1,
+    date: "2020/04/28",
+    duration: 10,
+    status: "approved",
+    suggestedActivities: [ ]
+  },
+  {
+    id: 196,
+    userID: 5,
+    destinationID: 16,
+    travelers: 1,
+    date: "2020/09/25",
+    duration: 8,
+    status: "approved",
+    suggestedActivities: [ ]
+  }
+];
+
+
 const allTripsData = [
   {
     id: 1,
@@ -124,6 +181,8 @@ const allDestinationsData = [
 
 export {
   allTravelersData,
+  travelerTrips1,
+  travelerTrips2,
   allTripsData,
   allDestinationsData
 };
