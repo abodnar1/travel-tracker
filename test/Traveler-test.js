@@ -55,9 +55,29 @@ describe('Traveler', () => {
     expect(traveler2.getMyTrips(allTripsData)).to.deep.equal(travelerTrips2);
   });
 
-  // should be able to return a traveler\'s past trips using their userID
-  // should be able to return a traveler\'s present trips using their userID
-  // should be able to return a traveler\'s future trips using their userID
-  // should be able to return a traveler\'s pending trips using their userID
+  // it.skip('should have a function to get the traveler\'s past trips', () => {
+  //     expect(traveler1.getMyPastTrips(allTripsData)).to.deep.equal();
+  //     expect(traveler2.getMyPastTrips(allTripsData)).to.deep.equal();
+  //   });
+    //
+    // it.skip('should have a function to get the traveler\'s present trips', () => {
+    //   expect(traveler1.getMyPresentTrips(allTripsData)).to.deep.equal();
+    //   expect(traveler2.getMyPresentTrips(allTripsData)).to.deep.equal();
+    // });
+    //
+    // it.skip('should have a function to get the traveler\'s future trips', () => {
+    //   expect(traveler1.getMyFutureTrips(allTripsData)).to.deep.equal();
+    //   expect(traveler2.getMyFutureTrips(allTripsData)).to.deep.equal();
+    // });
+    //
+    // it.skip('should have a function to get the traveler\'s pending trips', () => {
+    //   expect(traveler1.getMyPendingTrips(allTripsData)).to.deep.equal();
+    //   expect(traveler2.getMyPendingTrips(allTripsData)).to.deep.equal();
+    // });
+    //
+    // it.skip('should calculate the yearly total dollar amount a traveler has spent', () => {
+    //   expect(traveler1.calculateYearlySpend(allTripsData)).to.deep.equal();
+    //   expect(traveler2.calculateYearlySpend(allTripsData)).to.deep.equal();
+    // });
 
 });
