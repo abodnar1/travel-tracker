@@ -7,16 +7,14 @@ class Traveler {
   };
 
   getMyTrips(tripsData) {
-    this.myTrips = tripsData.filter(trip => this.id === trip.userID);
+    return this.myTrips = tripsData.filter(trip => this.id === trip.userID);
   };
 
+  // need a function for past trips?
+  // need a function for present trips?
+  // need a function for future trips?
+  // need a function for pending trips?
 
 };
 
 export default Traveler;
-
-
-// constructor (travelerData, tripsData) {
-// have a method to grab all past trips, present trips, future trips,
-// and pending trips
-// can use .find() to get the unique id number

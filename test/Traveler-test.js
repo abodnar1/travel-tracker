@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import Traveler from '../src/Traveler';
-import { allTravelersData } from '../src/data/sample-travelers-data';
+// import { allTravelersData } from '../src/data/sample-travelers-data';
+import { allTripsData, travelerTrips1, travelerTrips2 } from '../src/data/sample-trips-data';
 
 describe('Traveler', () => {
   let traveler1;
@@ -51,7 +52,12 @@ describe('Traveler', () => {
 
   it('should have a function to get the traveler\'s trips', () => {
     expect(traveler1.getMyTrips(allTripsData)).to.deep.equal(travelerTrips1);
-    expect(traveler1.getMyTrips(allTripsData)).to.deep.equal(travelerTrips2);
+    expect(traveler2.getMyTrips(allTripsData)).to.deep.equal(travelerTrips2);
   });
+
+  // need a test for past trips?
+  // need a test for present trips?
+  // need a test for future trips?
+  // need a test for pending trips?
 
 });
