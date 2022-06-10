@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import Traveler from '../src/Traveler';
 // import { allTravelersData } from '../src/data/sample-travelers-data';
-import { allTripsData, travelerTrips1, travelerTrips2 } from '../src/data/sample-trips-data';
+import { allTripsData, travelerTrips1, travelerTrips2 } from '../src/data/sample-trip-data';
 
 describe('Traveler', () => {
   let traveler1;
@@ -55,9 +55,9 @@ describe('Traveler', () => {
     expect(traveler2.getMyTrips(allTripsData)).to.deep.equal(travelerTrips2);
   });
 
-  // need a test for past trips?
-  // need a test for present trips?
-  // need a test for future trips?
-  // need a test for pending trips?
+  // should be able to return a traveler\'s past trips using their userID
+  // should be able to return a traveler\'s present trips using their userID
+  // should be able to return a traveler\'s future trips using their userID
+  // should be able to return a traveler\'s pending trips using their userID
 
 });

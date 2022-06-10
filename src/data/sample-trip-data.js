@@ -882,7 +882,7 @@ const allTripsData = [
     travelers: 1,
     date: "2020/05/06",
     duration: 11,
-    status: "pending",
+    status: "",
     suggestedActivities: [ ]
   },
   {
@@ -2087,8 +2087,4 @@ const allTripsData = [
   }
 ];
 
-export {
-  travelerTrips1,
-  travelerTrips2,
-  allTripsData
-};
+export { travelerTrips1, travelerTrips2, allTripsData };
