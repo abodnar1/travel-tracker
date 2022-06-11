@@ -65,19 +65,19 @@ const allTravelersData = [
     travelerType: "photographer"
   },
   {
-      id: 14,
-      name: "Ellynn Kyne",
-      travelerType: "history buff"
+    id: 14,
+    name: "Ellynn Kyne",
+    travelerType: "history buff"
   },
   {
-      id: 15,
-      name: "Emeline Winslet",
-      travelerType: "history buff"
+    id: 15,
+    name: "Emeline Winslet",
+    travelerType: "history buff"
   },
   {
-    id: 16,
-    name: "Deirdre Paeckmeyer",
-    travelerType: "foodie"
+  id: 16,
+  name: "Deirdre Paeckmeyer",
+  travelerType: "foodie"
   },
   {
     id: 17,
@@ -143,114 +143,7 @@ const allTravelersData = [
     id: 29,
     name: "Oliviero Tunuy",
     travelerType: "shopper"
-  },
-  {
-    id: 30,
-    name: "Kearney Hadland",
-    travelerType: "thrill-seeker"
-  },
-  {
-    id: 31,
-    name: "Maureene Derrell",
-    travelerType: "relaxer"
-  },
-  {
-    id: 32,
-    name: "Karlee Dowsey",
-    travelerType: "thrill-seeker"
-  },
-  {
-    id: 33,
-    name: "Selene Kleyn",
-    travelerType: "relaxer"
-  },
-  {
-    id: 34,
-    name: "Alexandr Struss",
-    travelerType: "shopper"
-  },
-  {
-    id: 35,
-    name: "Lorilyn Frostdick",
-    travelerType: "shopper"
-  },
-  {
-    id: 36,
-    name: "Lorettalorna Borell",
-    travelerType: "foodie"
-  },
-  {
-    id: 37,
-    name: "Jorry Adamczewski",
-    travelerType: "thrill-seeker"
-  },
-  {
-    id: 38,
-    name: "Lazar Leamy",
-    travelerType: "thrill-seeker"
-  },
-  {
-    id: 39,
-    name: "Michal Tudhope",
-    travelerType: "shopper"
-  },
-  {
-    id: 40,
-    name: "Melisent Pavolini",
-    travelerType: "photographer"
-  },
-  {
-    id: 41,
-    name: "Wadsworth Caddie",
-    travelerType: "photographer"
-  },
-  {
-    id: 42,
-    name: "Mignonne Thame",
-    travelerType: "photographer"
-  },
-  {
-    id: 43,
-    name: "Phyllis Madine",
-    travelerType: "photographer"
-  },
-  {
-    id: 44,
-    name: "Marijo MacNeilley",
-    travelerType: "photographer"
-  },
-  {
-    id: 45,
-    name: "Ofilia Titman",
-    travelerType: "thrill-seeker"
-  },
-  {
-    id: 46,
-    name: "Evanne Finnie",
-    travelerType: "relaxer"
-  },
-  {
-    id: 47,
-    name: "Den Dossettor",
-    travelerType: "relaxer"
-  },
-  {
-    id: 48,
-    name: "Lurlene Raisbeck",
-    travelerType: "photographer"
-  },
-  {
-    id: 49,
-    name: "Guthry Tute",
-    travelerType: "thrill-seeker"
-  },
-  {
-    id: 50,
-    name: "Morey Flanders",
-    travelerType: "foodie"
   }
 ];
 
-export {
-  allTravelersData,
-};
+export { allTravelersData };
