@@ -4,11 +4,239 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>Travel Tracker</title>
 </head>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
+  <header>
+    <h1>Travel Tracker</h1>
+    <div class="greeting">HELLO FIRSTNAME</div>
+  </header>
+  <section class="booking-wrapper"></section>
+    <div class="form-wrapper">
+      <form class="add-new-trip">
+        <label for="start-date">Start Date:</label><br>
+        <input type="date" requiredPattern="\d{4}/\d{2}/\d{2}" id="start-date" placeholder="YYYY/MM/DD" required/><br>
+        <label for="num-travelers"></label><br>
+        <input type="number" id="num-travelers" placeholder="Number of Travelers" required/><br>
+        <label for="duration"></label><br>
+        <input type="number" id="duration" placeholder="Duration of Stay" required/><br>
+        <label for="destination-select">Choose a destination:</label><br>
+        <select name="destinations" id="duration-select">
+            <option value="">--Please choose an option--</option>
+            <option value="peru">Peru</option>
+            <option value="hungary">Hungary</option>
+            <option value="france">France</option>
+        </select>
+        <button type"submit" id="book-now-button" class="disable" disabled>Book Now!</button>
+      </form>
+    </div>
+    <div class="annual-dollars-spent">TOTAL $$ SPENT THIS YEAR</div>
+
+    <section class="trip-card-container">
+        <!-- <div class="card-wrapper">
+          <div class="card-header">
+            <div class="card-info-wrapper">
+              <div class="views-wrapper">
+                <div class="views">VIEWS</div>
+                <div class="view-count">02</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="user-name-info">
+              <h2>Adoptee's Name Here</h2>
+              <div class="date">Monday 10/29/2022 10:29am</div>
+            </div>
+            <p class="grey-description-box">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <div class="attachments-info">
+              <h3>ATTACHMENTS</h3>
+              <div class="attachment-count">04</div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="card-wrapper">
+          <div class="card-header">
+            <div class="card-info-wrapper card2">
+              <div class="views-wrapper">
+                <div class="views">VIEWS</div>
+                <div class="view-count">02</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="user-name-info">
+              <h2>Adoptee's Name Here</h2>
+              <div class="date">Monday 10/29/2022 10:29am</div>
+            </div>
+            <p class="grey-description-box">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <div class="attachments-info">
+              <h3>ATTACHMENTS</h3>
+              <div class="attachment-count">04</div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="card-wrapper">
+          <div class="card-header">
+            <div class="card-info-wrapper card3">
+              <div class="views-wrapper">
+                <div class="views">VIEWS</div>
+                <div class="view-count">02</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="user-name-info">
+              <h2>Adoptee's Name Here</h2>
+              <div class="date">Monday 10/29/2022 10:29am</div>
+            </div>
+            <p class="grey-description-box">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <div class="attachments-info">
+              <h3>ATTACHMENTS</h3>
+              <div class="attachment-count">04</div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="card-wrapper">
+          <div class="card-header">
+            <div class="card-info-wrapper card4">
+              <div class="views-wrapper">
+                <div class="views">VIEWS</div>
+                <div class="view-count">02</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="user-name-info">
+              <h2>Adoptee's Name Here</h2>
+              <div class="date">Monday 10/29/2022 10:29am</div>
+            </div>
+            <p class="grey-description-box">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <div class="attachments-info">
+              <h3>ATTACHMENTS</h3>
+              <div class="attachment-count">04</div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="card-wrapper">
+          <div class="card-header">
+            <div class="card-info-wrapper card5">
+              <div class="views-wrapper">
+                <div class="views">VIEWS</div>
+                <div class="view-count">02</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="user-name-info">
+              <h2>Adoptee's Name Here</h2>
+              <div class="date">Monday 10/29/2022 10:29am</div>
+            </div>
+            <p class="grey-description-box">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <div class="attachments-info">
+              <h3>ATTACHMENTS</h3>
+              <div class="attachment-count">04</div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="card-wrapper">
+          <div class="card-header">
+            <div class="card-info-wrapper card6">
+              <div class="views-wrapper">
+                <div class="views">VIEWS</div>
+                <div class="view-count">02</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="user-name-info">
+              <h2>Adoptee's Name Here</h2>
+              <div class="date">Monday 10/29/2022 10:29am</div>
+            </div>
+            <p class="grey-description-box">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <div class="attachments-info">
+              <h3>ATTACHMENTS</h3>
+              <div class="attachment-count">04</div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="card-wrapper">
+          <div class="card-header">
+            <div class="card-info-wrapper card7">
+              <div class="views-wrapper">
+                <div class="views">VIEWS</div>
+                <div class="view-count">02</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="user-name-info">
+              <h2>Adoptee's Name Here</h2>
+              <div class="date">Monday 10/29/2022 10:29am</div>
+            </div>
+            <p class="grey-description-box">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <div class="attachments-info">
+              <h3>ATTACHMENTS</h3>
+              <div class="attachment-count">04</div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="card-wrapper">
+          <div class="card-header">
+            <div class="card-info-wrapper card8">
+              <div class="views-wrapper">
+                <div class="views">VIEWS</div>
+                <div class="view-count">02</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="user-name-info">
+              <h2>Adoptee's Name Here</h2>
+              <div class="date">Monday 10/29/2022 10:29am</div>
+            </div>
+            <p class="grey-description-box">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <div class="attachments-info">
+              <h3>ATTACHMENTS</h3>
+              <div class="attachment-count">04</div>
+            </div>
+          </div>
+        </div> -->
+      </section>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 
