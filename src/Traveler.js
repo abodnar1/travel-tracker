@@ -1,34 +1,43 @@
 class Traveler {
-  constructor (travelerData) {
-    this.id = travelerData.id;
-    this.name = travelerData.name;
-    this.travelerType = travelerData.travelerType;
+  constructor (travelerDetails) {
+    this.id = travelerDetails.id;
+    this.name = travelerDetails.name;
+    this.travelerType = travelerDetails.travelerType;
     this.myTrips = [];
+    this.myPastTrips = [];
+    this.myPresentTrips = [];
+    this.myFutureTrips = [];
+    this.myPendingTrips = [];
   };
 
-  getMyTrips(tripsData) {
-    return this.myTrips = tripsData.filter(trip => this.id === trip.userID);
+  returnTravelerFirstName() {
+    let firstName = this.name.split(' ');
+    return firstName[0];
   };
 
-  getMyPastTrips(tripsData, date) {
-    // need to run getMyTrips() and then filter on date from there?
+  getMyTrips(allTripsData) {
+    return this.myTrips = allTripsData.filter(trip => this.id === trip.userID);
   };
 
-  getMyPresentTrips(tripsData, date) {
-    // need to run getMyTrips() and then filter on date from there?
+  getMyPastTrips(allTripsData, todaysDate) {
+    return this.myPastTrips = allTripsData.filter(trip => this.id === trip.userID && trip.date < todaysDate);
   };
 
-  getMyFutureTrips(tripsData, date) {
-    // need to run getMyTrips() and then filter on date from there?
+  getMyPresentTrips(allTripsData, todaysDate) {
+    return this.myPresentTrips = allTripsData.filter(trip => this.id === trip.userID && trip.date === todaysDate);
   };
 
-  getMyPendingTrips(tripsData, date) {
-    // need to run getMyTrips() and then filter on data from there?
+  getMyFutureTrips(allTripsData, todaysDate) {
+    return this.myFutureTrips = allTripsData.filter(trip => this.id === trip.userID && trip.date > todaysDate);
   };
 
-  calculateYearlySpend() {
-
+  getMyPendingTrips(allTripsData) {
+    return this.myPendingTrips = allTripsData.filter(trip => this.id === trip.userID && trip.status === "pending");
   };
+
+  // calculateYearlySpend() {
+  //
+  // };
 };
 
 export default Traveler;
