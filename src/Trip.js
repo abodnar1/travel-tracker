@@ -8,7 +8,9 @@ class Trip {
     this.duration = trip.duration;
     this.status = trip.status;
     this.suggestedActivities = trip.suggestedActivities;
-  };
-};
+  }
+
+  //
+}
 
 export default Trip;

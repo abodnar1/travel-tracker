@@ -6,8 +6,8 @@ class Destination {
     this.estimatedFlightCostPerPerson = destinationDetails.estimatedFlightCostPerPerson;
     this.image = destinationDetails.image;
     this.alt = destinationDetails.alt;
-  };
-};
+  }
+}
 
 export default Destination;
 

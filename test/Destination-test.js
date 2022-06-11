@@ -11,7 +11,7 @@ describe('Destination', () => {
     destination2 = new Destination(allDestinationsData[7]);
   });
 
-  it('should be a function',() => {
+  it('should be a function', () => {
     expect(Destination).to.be.a('function');
   });
 
