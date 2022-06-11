@@ -10,5 +10,3 @@ class Destination {
 }
 
 export default Destination;
-
-// do i need to import a traveler into this file and calculate the cost?

@@ -16,7 +16,9 @@ class Traveler {
   }
 
   getMyTrips(allTripsData) {
-    return this.myTrips = allTripsData.filter(trip => this.id === trip.userID);
+    const myTrips = allTripsData.filter(trip => this.id === trip.userID);
+    this.myTrips = myTrips;
+    return myTrips;
   }
 
   getMyPastTrips(allTripsData, todaysDate) {
