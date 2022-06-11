@@ -31,12 +31,12 @@
 // function getData(){
 //   promise.then(data => {
 //
-//     allTravelersData = data[0].travelers;
-//     allTripsData = data[1].trips;
-//     allDestinationsData = data[2].destinations;
-//     console.log("travelers Data:", allTravelersData);
-//     console.log("trips Data:", allTripsData);
-//     console.log("destinations Data:", allDestinationsData);
+    // allTravelersData = data[0].travelers;
+    // allTripsData = data[1].trips;
+    // allDestinationsData = data[2].destinations;
+    // console.log("travelers Data:", allTravelersData);
+    // console.log("trips Data:", allTripsData);
+    // console.log("destinations Data:", allDestinationsData);
 //
 //     traveler = new Traveler(allTravelersData.returnSpecificUser(id))
 //     renderGreeting();
