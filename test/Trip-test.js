@@ -1,6 +1,8 @@
 import { expect } from 'chai';
 import Trip from '../src/Trip';
+import Destination from '../src/Destination';
 import { allTripsData } from '../src/data/sample-trip-data';
+import { allDestinationsData } from '../src/data/sample-destination-data';
 
 describe('Trip', () => {
   let trip1;
@@ -71,4 +73,9 @@ describe('Trip', () => {
     expect(trip1.suggestedActivities).to.deep.equal([]);
     expect(trip2.suggestedActivities).to.deep.equal([]);
   });
+
+  // it.skip('should be able to return the total trip cost plus 10% agency fee', () => {
+  //   expect(trip1.)
+  //
+  // })
 });

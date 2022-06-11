@@ -53,8 +53,10 @@ describe('Traveler', () => {
   it('should have a function to get the traveler\'s trips', () => {
     traveler1.getMyTrips(allTripsData);
     expect(traveler1.myTrips.length).to.equal(1);
+    console.log("line 56",traveler1.myTrips);
     traveler2.getMyTrips(allTripsData);
     expect(traveler2.myTrips.length).to.equal(4);
+    console.log("line 59",traveler2.myTrips);
   });
 
   it('should be able to store all of the traveler\'s past trips', () => {
@@ -132,7 +134,7 @@ describe('Traveler', () => {
     expect(traveler4.myPendingTrips.length).to.equal(1);
   });
 
-  // need to instantiate a new destination to calculate the yearly spend.
+  // need to instantiate a new destination to calculate the yearly spend?
 
   // it('should calculate the yearly total dollar amount a traveler has spent', () => {
   //   expect(traveler1.calculateYearlySpend(allTripsData)).to.deep.equal();
