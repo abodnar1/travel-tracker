@@ -4,6 +4,10 @@ class Traveler {
     this.name = travelerDetails.name;
     this.travelerType = travelerDetails.travelerType;
     this.myTrips = [];
+    this.myPastTrips = [];
+    this.myPresentTrips = [];
+    this.myFutureTrips = [];
+    this.myPendingTrips = [];
   };
 
   returnTravelerFirstName() {
@@ -15,22 +19,22 @@ class Traveler {
     return this.myTrips = allTripsData.filter(trip => this.id === trip.userID);
   };
 
-  // getMyPastTrips(allTripsData, date) {
-  //
-  // };
+  getMyPastTrips(allTripsData, todaysDate) {
+    return this.myPastTrips = allTripsData.filter(trip => this.id === trip.userID && trip.date < todaysDate);
+  };
 
-  // getMyPresentTrips(allTripsData, date) {
-  //   // need to run getMyTrips() and then filter on date from there?
-  // };
-  //
-  // getMyFutureTrips(allTripsData, date) {
-  //   // need to run getMyTrips() and then filter on date from there?
-  // };
-  //
-  // getMyPendingTrips(allTripsData, date) {
-  //   // need to run getMyTrips() and then filter on data from there?
-  // };
-  //
+  getMyPresentTrips(allTripsData, todaysDate) {
+    return this.myPresentTrips = allTripsData.filter(trip => this.id === trip.userID && trip.date === todaysDate);
+  };
+
+  getMyFutureTrips(allTripsData, todaysDate) {
+    return this.myFutureTrips = allTripsData.filter(trip => this.id === trip.userID && trip.date > todaysDate);
+  };
+
+  getMyPendingTrips(allTripsData) {
+    return this.myPendingTrips = allTripsData.filter(trip => this.id === trip.userID && trip.status === "pending");
+  };
+
   // calculateYearlySpend() {
   //
   // };
