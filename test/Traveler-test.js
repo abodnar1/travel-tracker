@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import Traveler from '../src/Traveler';
 import { allTravelersData } from '../src/data/sample-travelers-data';
 import { allTripsData } from '../src/data/sample-trip-data';
+const dayjs = require('dayjs');
 
 describe('Traveler', () => {
   let todaysDate;
@@ -10,7 +11,7 @@ describe('Traveler', () => {
   let traveler3;
 
   beforeEach(() => {
-    todaysDate = "2022/06/11";
+    todaysDate = dayjs().format("YYYY/MM/DD");
     traveler1 = new Traveler(allTravelersData[0]);
     traveler2 = new Traveler(allTravelersData[4]);
     traveler3 = new Traveler(allTravelersData[28]);
@@ -53,10 +54,9 @@ describe('Traveler', () => {
   it('should have a function to get the traveler\'s trips', () => {
     traveler1.getMyTrips(allTripsData);
     expect(traveler1.myTrips.length).to.equal(1);
-    console.log("line 56",traveler1.myTrips);
+
     traveler2.getMyTrips(allTripsData);
     expect(traveler2.myTrips.length).to.equal(4);
-    console.log("line 59",traveler2.myTrips);
   });
 
   it('should be able to store all of the traveler\'s past trips', () => {

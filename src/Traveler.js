@@ -1,3 +1,6 @@
+const dayjs = require('dayjs');
+let todaysDate = dayjs().format("YYYY/MM/DD");
+
 class Traveler {
   constructor (travelerDetails) {
     this.id = travelerDetails.id;
@@ -16,25 +19,33 @@ class Traveler {
   }
 
   getMyTrips(allTripsData) {
-    const myTrips = allTripsData.filter(trip => this.id === trip.userID);
-    this.myTrips = myTrips;
-    return myTrips;
+    const trips = allTripsData.filter(trip => this.id === trip.userID);
+    this.myTrips = trips;
+    return trips;
   }
 
   getMyPastTrips(allTripsData, todaysDate) {
-    return this.myPastTrips = allTripsData.filter(trip => this.id === trip.userID && trip.date < todaysDate);
+    const pastTrips = allTripsData.filter(trip => this.id === trip.userID && trip.date < todaysDate);
+    this.myPastTrips = pastTrips;
+    return pastTrips;
   }
 
   getMyPresentTrips(allTripsData, todaysDate) {
-    return this.myPresentTrips = allTripsData.filter(trip => this.id === trip.userID && trip.date === todaysDate);
+    const presentTrips = allTripsData.filter(trip => this.id === trip.userID && trip.date === todaysDate);
+    this.myPresentTrips = presentTrips;
+    return presentTrips;
   }
 
   getMyFutureTrips(allTripsData, todaysDate) {
-    return this.myFutureTrips = allTripsData.filter(trip => this.id === trip.userID && trip.date > todaysDate);
+    const futureTrips = allTripsData.filter(trip => this.id === trip.userID && trip.date > todaysDate);
+    this.myFutureTrips = futureTrips;
+    return futureTrips;
   }
 
   getMyPendingTrips(allTripsData) {
-    return this.myPendingTrips = allTripsData.filter(trip => this.id === trip.userID && trip.status === "pending");
+    const pendingTrips = allTripsData.filter(trip => this.id === trip.userID && trip.status === "pending");
+    this.myPendingTrips = pendingTrips;
+    return pendingTrips;
   }
 
   // calculateYearlySpend() {
