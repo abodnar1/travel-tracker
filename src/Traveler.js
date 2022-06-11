@@ -1,34 +1,39 @@
 class Traveler {
-  constructor (travelerData) {
-    this.id = travelerData.id;
-    this.name = travelerData.name;
-    this.travelerType = travelerData.travelerType;
+  constructor (travelerDetails) {
+    this.id = travelerDetails.id;
+    this.name = travelerDetails.name;
+    this.travelerType = travelerDetails.travelerType;
     this.myTrips = [];
   };
 
-  getMyTrips(tripsData) {
-    return this.myTrips = tripsData.filter(trip => this.id === trip.userID);
+  returnTravelerFirstName() {
+    let firstName = this.name.split(' ');
+    return firstName[0];
   };
 
-  getMyPastTrips(tripsData, date) {
-    // need to run getMyTrips() and then filter on date from there?
+  getMyTrips(allTripsData) {
+    return this.myTrips = allTripsData.filter(trip => this.id === trip.userID);
   };
 
-  getMyPresentTrips(tripsData, date) {
-    // need to run getMyTrips() and then filter on date from there?
-  };
+  // getMyPastTrips(allTripsData, date) {
+  //
+  // };
 
-  getMyFutureTrips(tripsData, date) {
-    // need to run getMyTrips() and then filter on date from there?
-  };
-
-  getMyPendingTrips(tripsData, date) {
-    // need to run getMyTrips() and then filter on data from there?
-  };
-
-  calculateYearlySpend() {
-
-  };
+  // getMyPresentTrips(allTripsData, date) {
+  //   // need to run getMyTrips() and then filter on date from there?
+  // };
+  //
+  // getMyFutureTrips(allTripsData, date) {
+  //   // need to run getMyTrips() and then filter on date from there?
+  // };
+  //
+  // getMyPendingTrips(allTripsData, date) {
+  //   // need to run getMyTrips() and then filter on data from there?
+  // };
+  //
+  // calculateYearlySpend() {
+  //
+  // };
 };
 
 export default Traveler;

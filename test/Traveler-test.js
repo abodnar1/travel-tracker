@@ -35,19 +35,24 @@ describe('Traveler', () => {
     expect(traveler2.id).to.be.equal(5);
   });
 
-  it ('should be able to store the traveler\'s name', () => {
+  it('should be able to store the traveler\'s name', () => {
     expect(traveler1.name).to.be.equal('Ham Leadbeater');
     expect(traveler2.name).to.be.equal('Tiffy Grout');
   });
 
-  it ('should be able to store the traveler\'s type', () => {
+  it('should be able to store the traveler\'s type', () => {
     expect(traveler1.travelerType).to.be.equal('relaxer');
     expect(traveler2.travelerType).to.be.equal('thrill-seeker');
   });
 
-  it ('should be able to store the traveler\'s trips', () => {
+  it('should be able to store the traveler\'s trips', () => {
     expect(traveler1.myTrips).to.deep.equal([]);
     expect(traveler2.myTrips).to.deep.equal([]);
+  });
+
+  it('should be able to return the first name of a traveler', () => {
+    expect(traveler1.returnTravelerFirstName()).to.be.equal('Ham');
+    expect(traveler2.returnTravelerFirstName()).to.be.equal('Tiffy');
   });
 
   it('should have a function to get the traveler\'s trips', () => {
@@ -55,7 +60,7 @@ describe('Traveler', () => {
     expect(traveler2.getMyTrips(allTripsData)).to.deep.equal(travelerTrips2);
   });
 
-  // it.skip('should have a function to get the traveler\'s past trips', () => {
+  // it('should have a function to get the traveler\'s past trips', () => {
   //     expect(traveler1.getMyPastTrips(allTripsData)).to.deep.equal();
   //     expect(traveler2.getMyPastTrips(allTripsData)).to.deep.equal();
   //   });
