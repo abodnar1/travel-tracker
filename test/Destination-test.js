@@ -1,14 +1,18 @@
 import { expect } from 'chai';
 import Destination from '../src/Destination';
 import { allDestinationsData } from '../src/data/sample-destination-data';
+// import Trip from '../src/Trip';
+// import { allTripsData } from '../src/data/sample-trip-data';
 
 describe('Destination', () => {
-  let destination1;
-  let destination2;
+  let destinations;
+  // let trip1;
+  // let trip2;
 
   beforeEach(() => {
-    destination1 = new Destination(allDestinationsData[0]);
-    destination2 = new Destination(allDestinationsData[7]);
+    destinations = new Destination(allDestinationsData);
+    // trip1 = new Trip(allTripsData[0]);
+    // trip2 = new Trip(allTripsData[1]);
   });
 
   it('should be a function', () => {
@@ -16,37 +20,21 @@ describe('Destination', () => {
   });
 
   it('should be an instance of Destination', () => {
-    expect(destination1).to.be.instanceOf(Destination);
-    expect(destination2).to.be.instanceOf(Destination);
+    expect(destinations).to.be.an.instanceOf(Destination);
   });
 
-  it('should be able to store the destination\'s ID', () => {
-    expect(destination1.id).to.equal(1);
-    expect(destination2.id).to.equal(8);
+  it('should have a parameter to take in all destinations data', () => {
+    expect(destinations.destinationsData).to.deep.equal(allDestinationsData);
   });
 
-  it('should be able to store the destination\'s location', () => {
-    expect(destination1.destination).to.equal('Lima, Peru');
-    expect(destination2.destination).to.equal('Tokyo, Japan');
+  it('should be able to return a specific destination using its id', () => {
+    expect(destinations.getSpecificDestination(1)).to.deep.equal(allDestinationsData[0]);
+    expect(destinations.getSpecificDestination(8)).to.deep.equal(allDestinationsData[7]);
+    expect(destinations.getSpecificDestination(11)).to.equal('Destination not found');
   });
 
-  it('should be able to store the destination\'s estimated lodging cost per day', () => {
-    expect(destination1.estimatedLodgingCostPerDay).to.equal(70);
-    expect(destination2.estimatedLodgingCostPerDay).to.equal(125);
-  });
-
-  it('should be able to store the destination\'s estimated flight cost per person', () => {
-    expect(destination1.estimatedFlightCostPerPerson).to.equal(400);
-    expect(destination2.estimatedFlightCostPerPerson).to.equal(1000);
-  });
-
-  it('should be able to store the destination\'s stock image', () => {
-    expect(destination1.image).to.equal('https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80');
-    expect(destination2.image).to.equal('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1971&q=80');
-  });
-
-  it('should be able to store the destination\'s stock image alt text', () => {
-    expect(destination1.alt).to.equal('overview of city buildings with a clear sky');
-    expect(destination2.alt).to.equal('city with people walking in crosswalk and brightly lit shops at night');
+  it('should be able to calculate the total cost of the trip using a trip\'s duration and number of travelers', () => {
+    expect(destinations.calculateTripCost(28, 15, 3)).to.equal(4125);
+    expect(destinations.calculateTripCost(5, 16, 1)).to.equal(3355);
   });
 });
