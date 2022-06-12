@@ -1,16 +1,18 @@
 import { expect } from 'chai';
 import Trip from '../src/Trip';
-// import Destination from '../src/Destination';
+import Destination from '../src/Destination';
 import { allTripsData } from '../src/data/sample-trip-data';
-// import { allDestinationsData } from '../src/data/sample-destination-data';
+import { allDestinationsData } from '../src/data/sample-destination-data';
 
 describe('Trip', () => {
   let trip1;
   let trip2;
+  let destinations;
 
   beforeEach(() => {
-    trip1 = new Trip(allTripsData[0]);
-    trip2 = new Trip(allTripsData[1]);
+    destinations = new Destination(allDestinationsData);
+    trip1 = new Trip(allTripsData[0], allDestinationsData);
+    trip2 = new Trip(allTripsData[1], allDestinationsData);
   });
 
   it('should be a function', () => {
@@ -72,5 +74,36 @@ describe('Trip', () => {
   it('should be able to store suggested activities', () => {
     expect(trip1.suggestedActivities).to.deep.equal([]);
     expect(trip2.suggestedActivities).to.deep.equal([]);
+  });
+
+  it.skip('should be able to store the destination\'s name', () => {
+    getDestinationName()
+    expect(trip1.destinationName).to.equal('San Juan, Puerto Rico');
+    expect(trip2.destinationName).to.equal('Madrid, Spain');
+  });
+
+  it.skip('should be able to store the destination\'s daily cost', () => {
+    expect(trip1.estimatedLodgingCostPerDay).to.equal(70);
+    expect(trip2.estimatedLodgingCostPerDay).to.equal(150);
+  });
+
+  it.skip('should be able to store the destination\'s flight cost', () => {
+    expect(trip1.estimatedFlightCostPerPerson).to.equal(900);
+    expect(trip2.estimatedFlightCostPerPerson).to.equal(650);
+  });
+
+  it.skip('should be able to store the destination\'s image', () => {
+    expect(trip1.image).to.equal('https://images.unsplash.com/photo-1580237541049-2d715a09486e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2090&q=80');
+    expect(trip2.image).to.equal('https://images.unsplash.com/photo-1543785734-4b6e564642f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
+  });
+
+  it.skip('should be able to store the destination\'s alt text', () => {
+    expect(trip1.alt).to.equal('white and brown concrete buildings near sea under white clouds during daytime');
+    expect(trip2.alt).to.equal('city with clear skys and a road in the day time');
+  });
+
+  it.skip('should be able to calculate the total cost of the trip plus 10% fee', () => {
+    expect(destinations.calculateTripCost(28, 15, 3)).to.equal(4125);
+    expect(destinations.calculateTripCost(5, 16, 1)).to.equal(3355);
   });
 });
