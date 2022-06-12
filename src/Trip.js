@@ -1,3 +1,5 @@
+// destinations Data throughs
+
 class Trip {
   constructor(trip) {
     this.id = trip.id;
@@ -9,6 +11,8 @@ class Trip {
     this.status = trip.status;
     this.suggestedActivities = trip.suggestedActivities;
   }
+
+  // move calculate the trip cost function here.
 }
 
 export default Trip;

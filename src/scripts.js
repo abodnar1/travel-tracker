@@ -3,8 +3,7 @@ import { promise } from './apiCalls';
 import Traveler from './Traveler';
 import Trip from './Trip';
 import Destination from './Destination';
-const dayjs = require('dayjs');
-let todaysDate = dayjs().format("YYYY/MM/DD");
+// import domUpdates from './domUpdates';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png';
@@ -15,6 +14,8 @@ var catchError = document.querySelector(".catch-error");
 var testPastTrips = document.querySelector(".grey-description-box");
 
 /*~~~~~~~~GLOBAL VARIABLES~~~~~~~*/
+const dayjs = require('dayjs');
+let todaysDate = dayjs().format("YYYY/MM/DD");
 let allTravelersData;
 let allTripsData;
 let allDestinationsData;
@@ -55,14 +56,15 @@ function renderTravelerDashboard(id) {
   const traveler = allTravelersData.find(traveler => traveler.id === id);
   currentTraveler = new Traveler(traveler);
   renderGreeting();
-  // renderPendingTrips();
-  // renderFutureTrips();
-  // renderPresentTrips();
+  // domUpdates.renderPendingTrips();
+  // domUpdates.renderFutureTrips();
+  // domUpdates.renderPresentTrips();
   renderPastTrips();
 }
 
+
 function renderGreeting() {
-   greeting.innerText = `Welcome back, ${currentTraveler.returnTravelerFirstName()}!`;
+  greeting.innerText = `Welcome back, ${currentTraveler.returnTravelerFirstName()}!`;
 }
 
 function renderPendingTrips() {
@@ -82,8 +84,10 @@ function renderPresentTrips() {
 
 function renderPastTrips() {
   const pastTrips = currentTraveler.getMyPastTrips(allTripsData, todaysDate);
-  let output = pastTrips.map(trip => trip.destinationID)
-  testPastTrips.innerText = `Past Trips: ${output}`;
-  console.log("Line 87:", pastTrips)
-  return output;
+  // let output = pastTrips.map(trip => trip.destinationID)
+  // testPastTrips.innerText = `Past Trips: ${output}`;
+
+  let sortedPastTrips = pastTrips.sort((a, b) => b.date - a.date);
+  console.log("Line 88:", sortedPastTrips)
+  return sortedPastTrips;
 }
