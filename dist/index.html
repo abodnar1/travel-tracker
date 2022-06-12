@@ -13,11 +13,12 @@
 <body>
   <header>
     <h1>Travel Tracker</h1>
-    <div class="greeting">HELLO FIRSTNAME</div>
+    <h2 class="greeting">Hello FirstNameOfTraveler</h2>
+    <h3 class="annual-dollars-spent">You've spent $X.XX this year!</div>
     <p class="catch-error"></p>
   </header>
-  <section class="booking-wrapper"></section>
-    <div class="form-wrapper">
+  <main>
+    <section class="bookings-wrapper">
       <form class="add-new-trip">
         <label for="start-date">Start Date:</label><br>
         <input type="date" requiredPattern="\d{4}/\d{2}/\d{2}" id="start-date" placeholder="YYYY/MM/DD" required/><br>
@@ -34,12 +35,12 @@
         </select>
         <button type"submit" id="book-now-button" class="disable" disabled>Book Now!</button>
       </form>
-    </div>
-    <div class="annual-dollars-spent">TOTAL $$ SPENT THIS YEAR</div>
+      <div class="new-trip-cost-estimator">Trip Estimation Goes Here</div>
+    </section>
 
-    <section class="trip-card-container">
-        <!-- <div class="card-wrapper">
-          <div class="card-header">
+    <section class="pending-trips-container">
+        <div class="card-wrapper">
+          <div class="card-header">DESTINATION IMAGE HERE
             <div class="card-info-wrapper">
               <div class="views-wrapper">
                 <div class="views">VIEWS</div>
@@ -48,24 +49,22 @@
             </div>
           </div>
           <div class="card-body">
-            <div class="user-name-info">
-              <h2>Adoptee's Name Here</h2>
-              <div class="date">Monday 10/29/2022 10:29am</div>
+            <div class="destination-name-info">
+              <h4>Destination Name Here</h4>
+              <div class="date">Insert Date of Trip</div>
             </div>
             <p class="grey-description-box">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
-            <div class="attachments-info">
-              <h3>ATTACHMENTS</h3>
-              <div class="attachment-count">04</div>
-            </div>
           </div>
-        </div> -->
+        </div>
+    </section>
 
-        <!-- <div class="card-wrapper">
-          <div class="card-header">
-            <div class="card-info-wrapper card2">
+    <section class="future-trips-container">
+        <div class="card-wrapper">
+          <div class="card-header">DESTINATION IMAGE HERE
+            <div class="card-info-wrapper">
               <div class="views-wrapper">
                 <div class="views">VIEWS</div>
                 <div class="view-count">02</div>
@@ -73,24 +72,22 @@
             </div>
           </div>
           <div class="card-body">
-            <div class="user-name-info">
-              <h2>Adoptee's Name Here</h2>
-              <div class="date">Monday 10/29/2022 10:29am</div>
+            <div class="destination-name-info">
+              <h4>Destination Name Here</h4>
+              <div class="date">Insert Date of Trip</div>
             </div>
             <p class="grey-description-box">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
-            <div class="attachments-info">
-              <h3>ATTACHMENTS</h3>
-              <div class="attachment-count">04</div>
-            </div>
           </div>
-        </div> -->
+        </div>
+    </section>
 
-        <!-- <div class="card-wrapper">
-          <div class="card-header">
-            <div class="card-info-wrapper card3">
+    <section class="present-trips-container">
+        <div class="card-wrapper">
+          <div class="card-header">DESTINATION IMAGE HERE
+            <div class="card-info-wrapper">
               <div class="views-wrapper">
                 <div class="views">VIEWS</div>
                 <div class="view-count">02</div>
@@ -98,24 +95,22 @@
             </div>
           </div>
           <div class="card-body">
-            <div class="user-name-info">
-              <h2>Adoptee's Name Here</h2>
-              <div class="date">Monday 10/29/2022 10:29am</div>
+            <div class="destination-name-info">
+              <h4>Destination Name Here</h4>
+              <div class="date">Insert Date of Trip</div>
             </div>
             <p class="grey-description-box">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
-            <div class="attachments-info">
-              <h3>ATTACHMENTS</h3>
-              <div class="attachment-count">04</div>
-            </div>
           </div>
-        </div> -->
+        </div>
+    </section>
 
-        <!-- <div class="card-wrapper">
-          <div class="card-header">
-            <div class="card-info-wrapper card4">
+    <section class="past-trips-container">
+        <div class="card-wrapper">
+          <div class="card-header">DESTINATION IMAGE HERE
+            <div class="card-info-wrapper">
               <div class="views-wrapper">
                 <div class="views">VIEWS</div>
                 <div class="view-count">02</div>
@@ -123,121 +118,19 @@
             </div>
           </div>
           <div class="card-body">
-            <div class="user-name-info">
-              <h2>Adoptee's Name Here</h2>
-              <div class="date">Monday 10/29/2022 10:29am</div>
+            <div class="destination-name-info">
+              <h4>Destination Name Here</h4>
+              <div class="date">Insert Date of Trip</div>
             </div>
             <p class="grey-description-box">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
-            <div class="attachments-info">
-              <h3>ATTACHMENTS</h3>
-              <div class="attachment-count">04</div>
-            </div>
           </div>
-        </div> -->
+        </div>
+    </section>
 
-        <!-- <div class="card-wrapper">
-          <div class="card-header">
-            <div class="card-info-wrapper card5">
-              <div class="views-wrapper">
-                <div class="views">VIEWS</div>
-                <div class="view-count">02</div>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="user-name-info">
-              <h2>Adoptee's Name Here</h2>
-              <div class="date">Monday 10/29/2022 10:29am</div>
-            </div>
-            <p class="grey-description-box">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <div class="attachments-info">
-              <h3>ATTACHMENTS</h3>
-              <div class="attachment-count">04</div>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- <div class="card-wrapper">
-          <div class="card-header">
-            <div class="card-info-wrapper card6">
-              <div class="views-wrapper">
-                <div class="views">VIEWS</div>
-                <div class="view-count">02</div>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="user-name-info">
-              <h2>Adoptee's Name Here</h2>
-              <div class="date">Monday 10/29/2022 10:29am</div>
-            </div>
-            <p class="grey-description-box">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <div class="attachments-info">
-              <h3>ATTACHMENTS</h3>
-              <div class="attachment-count">04</div>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- <div class="card-wrapper">
-          <div class="card-header">
-            <div class="card-info-wrapper card7">
-              <div class="views-wrapper">
-                <div class="views">VIEWS</div>
-                <div class="view-count">02</div>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="user-name-info">
-              <h2>Adoptee's Name Here</h2>
-              <div class="date">Monday 10/29/2022 10:29am</div>
-            </div>
-            <p class="grey-description-box">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <div class="attachments-info">
-              <h3>ATTACHMENTS</h3>
-              <div class="attachment-count">04</div>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- <div class="card-wrapper">
-          <div class="card-header">
-            <div class="card-info-wrapper card8">
-              <div class="views-wrapper">
-                <div class="views">VIEWS</div>
-                <div class="view-count">02</div>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="user-name-info">
-              <h2>Adoptee's Name Here</h2>
-              <div class="date">Monday 10/29/2022 10:29am</div>
-            </div>
-            <p class="grey-description-box">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <div class="attachments-info">
-              <h3>ATTACHMENTS</h3>
-              <div class="attachment-count">04</div>
-            </div>
-          </div>
-        </div> -->
-      </section>
+  </main>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 

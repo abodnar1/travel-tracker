@@ -4,9 +4,127 @@
   margin: 0px;
   padding: 0px;
   cursor: default;
-  border: 1px solid pink;
 }
 
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  background: #EEEEEE;
+  overflow: sroll;
+}
+
+header {
+  border: 2px solid blue;
+}
+
+h1 {
+  font-size: 40px;
+  border: 2px solid pink;
+}
+
+h2, h3 {
+  font-size: 20px;
+  text-align: right;
+}
+
+.bookings-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 2px solid purple;
+}
+
+.add-new-trip {
+  display: flex;
+  border: 2px solid green;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-trip-cost-estimator {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  border: 2px solid black;
+}
+
+/* Card Section */
+.pending-trips-container,
+.past-trips-container,
+.present-trips-container,
+.future-trips-container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  border: 2px solid magenta;
+}
+
+.card-wrapper {
+  margin: 5px;
+  padding: 5px;
+  height: 450px;
+  width: 300px;
+  box-shadow: 2px 2px 2px grey;
+  background-color: #FFFFFF;
+}
+
+/* .card-wrapper:hover{
+  transform: scale(1.1);
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+} */
+
+.card-info-wrapper {
+  display:flex;
+  justify-content: right;
+  flex-direction: row;
+  height: 200px;
+  cursor: pointer;
+}
+
+.views-wrapper {
+  text-align: center;
+  color: #FFFFFF;
+  margin: 20px 20px 0px 0px;
+}
+
+.views {
+  font-size: 15px;
+}
+
+.view-count {
+  font-size: 30px;
+}
+
+.card-body {
+  margin: 20px 10px 5px 5px;
+
+}
+
+h4 {
+  font-size: 20px;
+  margin: 5px 0px 15px 5px;
+}
+
+.date {
+  font-size: 14px;
+  margin: 5px 0px 0px 5px;
+}
+
+.grey-description-box {
+  background-color: #EFEFEF;
+  margin: 5px;
+  padding: 5px;
+  height: 60px;
+  width: 270px;
+  text-align: left;
+  font-size: 12px;
+}
+
+h5 {
+  font-size: 12px;
+  margin: 20px 0px 6px 5px;
+}
+
+.attachment-count {
+  font-size: 30px;
+  margin: 0px 0px 6px 5px;
 }
