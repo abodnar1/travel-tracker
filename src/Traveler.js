@@ -1,8 +1,9 @@
+import Trip from '../src/Trip';
 const dayjs = require('dayjs');
 let todaysDate = dayjs().format("YYYY/MM/DD");
 
 class Traveler {
-  constructor (traveler) {
+  constructor (traveler, allTripsData) {
     this.id = traveler.id;
     this.name = traveler.name;
     this.travelerType = traveler.travelerType;
@@ -54,9 +55,21 @@ class Traveler {
     return pendingTrips;
   }
 
-  // calculateYearlySpend() {
+  // calculateYearlySpend(year) {
+  //   // test is not recognizing calculateTripCost because a new Trip isn't instantiated?
+  //   const approvedTrips = this.myTrips.filter(trip => trip.status === "approved");
+  //   console.log("ApprovedTrips:", approvedTrips);
   //
-  // };
+  //   const tripsThisYear = approvedTrips.filter(trip => trip.date.includes(year));
+  //   console.log("TripsThisYear:", tripsThisYear);
+  //
+  //   const totalSpentThisYear = tripsThisYear.reduce((acc, trip) => {
+  //     console.log(trip)
+  //     acc += trip.calculateTripCost();
+  //     return acc;
+  //   }, 0);
+  //   return totalSpentThisYear;
+  // }
 }
 
 export default Traveler;

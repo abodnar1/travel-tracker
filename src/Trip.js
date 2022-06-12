@@ -1,4 +1,4 @@
-import Destination from '../src/Destination';
+// import Destination from '../src/Destination';
 
 class Trip {
   constructor(trip, destinations) {
@@ -10,20 +10,19 @@ class Trip {
     this.duration = trip.duration;
     this.status = trip.status;
     this.suggestedActivities = trip.suggestedActivities;
-    // this.destinationName = destinations.getSpecificDestination(trip.destinationID).destination;
-    // this.estimatedLodgingCostPerDay = destinations.getSpecificDestination(trip.destinationID).estimatedLodgingCostPerDay;
-    // this.estimatedFlightCostPerPerson = destinations.getSpecificDestination(trip.destinationID).estimatedFlightCostPerPerson;
-    // this.image = destinations.getSpecificDestination(trip.destinationID).image;
-    // this.alt = destinations.getSpecificDestination(trip.destinationID).alt;
+    this.destinationName = destinations.find(destination => destination.id === trip.destinationID).destination;
+    this.destinationCostPerDay = destinations.find(destination => destination.id === trip.destinationID).estimatedLodgingCostPerDay;
+    this.destinationFlightCost = destinations.find(destination => destination.id === trip.destinationID).estimatedFlightCostPerPerson;
+    this.destinationImage = destinations.find(destination => destination.id === trip.destinationID).image;
+    this.destinationAltText = destinations.find(destination => destination.id === trip.destinationID).alt;
   }
 
-  getDestinationName() {
-    destinations.getSpecificDestination(this.destinationID);
-    return destination.name;
+  calculateTripCost() {
+    const costOfLodging = this.duration * this.destinationCostPerDay;
+    const costOfFlights = this.travelers * this.destinationFlightCost;
+    const total = Math.round((costOfLodging + costOfFlights) * 1.1)
+    return total;
   }
-
-  // move calculate the trip cost function here.
-
-}
+};
 
 export default Trip;

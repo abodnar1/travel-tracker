@@ -134,11 +134,14 @@ describe('Traveler', () => {
     expect(traveler4.myPendingTrips.length).to.equal(1);
   });
 
-  // need to instantiate a new destination to calculate the yearly spend?
+  it.skip('should calculate the yearly total dollar amount a traveler has spent', () => {
+    // traveler1.getMyTrips(allTripsData);
+    // expect(traveler1.calculateYearlySpend("2022")).to.equal(0);
 
-  // it('should calculate the yearly total dollar amount a traveler has spent', () => {
-  //   expect(traveler1.calculateYearlySpend(allTripsData)).to.deep.equal();
-  //   expect(traveler2.calculateYearlySpend(allTripsData)).to.deep.equal();
-  //   expect(traveler3.calculateYearlySpend(allTripsData)).to.deep.equal();
-  // });
+    // traveler2.getMyTrips(allTripsData);
+    // expect(traveler2.calculateYearlySpend("2022")).to.equal(0);
+
+    // traveler3.getMyTrips(allTripsData);
+    // expect(traveler3.calculateYearlySpend("2022")).to.equal(3894);
+  });
 });
