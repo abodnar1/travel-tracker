@@ -2,10 +2,10 @@ const dayjs = require('dayjs');
 let todaysDate = dayjs().format("YYYY/MM/DD");
 
 class Traveler {
-  constructor (travelerDetails) {
-    this.id = travelerDetails.id;
-    this.name = travelerDetails.name;
-    this.travelerType = travelerDetails.travelerType;
+  constructor (traveler) {
+    this.id = traveler.id;
+    this.name = traveler.name;
+    this.travelerType = traveler.travelerType;
     this.myTrips = [];
     this.myPastTrips = [];
     this.myPresentTrips = [];
@@ -19,9 +19,15 @@ class Traveler {
   }
 
   getMyTrips(allTripsData) {
-    const trips = allTripsData.filter(trip => this.id === trip.userID);
-    this.myTrips = trips;
-    return trips;
+    const myTrips = allTripsData.filter(trip => this.id === trip.userID);
+    const sortedTrips = myTrips.sort((a, b) => {
+      let dateA = new Date (a.date);
+      let dateB = new Date (b.date);
+      return dateB - dateA;
+    });
+
+    this.myTrips = sortedTrips;
+    return sortedTrips;
   }
 
   getMyPastTrips(allTripsData, todaysDate) {

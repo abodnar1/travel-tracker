@@ -52,7 +52,7 @@ h2, h3 {
 .present-trips-container,
 .future-trips-container {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   border: 2px solid magenta;
 }
