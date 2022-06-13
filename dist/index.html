@@ -13,30 +13,27 @@
 <body>
   <header>
     <h1>Travel Tracker</h1>
-    <h2 class="greeting">greeting</h2>
-    <h3 class="annual-dollars-spent">You've spent $0.00 this year!</div>
+    <h2 class="greeting"></h2>
+    <h3 class="annual-dollars-spent"></div>
     <p class="catch-error"></p>
   </header>
   <main>
     <section class="bookings-wrapper">
       <form class="add-new-trip">
         <label for="start-date">Start Date:</label><br>
-        <input type="date" requiredPattern="\d{4}/\d{2}/\d{2}" id="start-date" placeholder="YYYY/MM/DD" required/><br>
+        <input type="date" requiredPattern="\d{4}/\d{2}/\d{2}" id="startDate" placeholder="YYYY/MM/DD" required/><br>
         <label for="num-travelers">Number of Travelers:</label><br>
-        <input type="number" id="num-travelers" placeholder="Number of Travelers" required/><br>
+        <input type="number" id="numTravelers" placeholder="Number of Travelers" required/><br>
         <label for="duration">Duration:</label><br>
         <input type="number" id="duration" placeholder="Duration of Stay" required/><br>
-        <label for="destination-select">Choose a destination:</label><br>
-        <select name="destinations" id="destination-select">
-            <option value="">--Please choose an option--</option>
-            <!-- need to remove these values -->
-            <option value="peru">Peru</option>
-            <option value="hungary">Hungary</option>
-            <option value="france">France</option>
+        <label for="destinationSelect">Where do you want to go?</label><br>
+        <select name="destinations" id="destinationSelect">
+            <option value="">--Please choose a destination--</option>
+            <!-- <option value="text" class="destination-name"></option> -->
         </select>
         <div class="button-container">
-          <button type"submit" id="book-now-button" class="disable" disabled>Book Now!</button>
-          <button type"submit" id="cancel-button" class="disable" disabled>Cancel</button>
+          <button type"submit" id="bookNowButton" class="disable" disabled>Book Now!</button>
+          <button type"submit" id="cancelButton" class="disable" disabled>Cancel</button>
         </div>
       </form>
       <div class="new-trip-cost-estimator">Estimated cost +10% travel agent fee is $0.00</div>
