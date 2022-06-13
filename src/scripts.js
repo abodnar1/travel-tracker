@@ -5,19 +5,19 @@ import Trip from './Trip';
 import Destination from './Destination';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png';
+// import './images/turing-logo.png';
 
 /*~~~~~~~~QUERY SELECTORS~~~~~~~*/
 var greeting = document.querySelector(".greeting");
 var catchError = document.querySelector(".catch-error");
 var tripCardContainer = document.querySelector(".all-trip-cards-container");
 var annualTripSpend = document.querySelector(".annual-dollars-spent");
-var destinationSelectionMenu = document.getElementById("destinationSelect");
-// var dateInput = document.getElementById("startDate");
-// var numTravelers = document.getElementById("numTravelers");
-// var durationInput = document.getElementById("duration");
-// var destinationInput = document.getElementById("destinationSelect");
-// var bookNowButton = document.getElementById("bookNowButton");
+
+var dateInput = document.getElementById("startDate");
+var numTravelers = document.getElementById("numTravelers");
+var durationInput = document.getElementById("duration");
+var destinationInput = document.getElementById("destinationInput");
+var bookNowButton = document.getElementById("bookNowButton");
 // var cancelButton = document.getElementById("cancelButton");
 
 /*~~~~~~~~GLOBAL VARIABLES~~~~~~~*/
@@ -32,12 +32,12 @@ let currentTraveler;
 // let newTrip; ?
 
 /*~~~~~~~~EVENT LISTENERS~~~~~~~*/
-// dateInput.addEventListener('keyup', checkBookingFields);
-// numTravelers.addEventListener('keyup', checkBookingFields);
-// durationInput.addEventListener('keyup', checkBookingFields);
-// destinationInput.addEventListener('keyup', checkBookingFields);
-// bookNowButton.addEventListener('keyup', checkBookingFields);
-// cancelNowButton.addEventListener('', );
+dateInput.addEventListener('keyup', checkBookingFields);
+numTravelers.addEventListener('keyup', checkBookingFields);
+durationInput.addEventListener('keyup', checkBookingFields);
+destinationInput.addEventListener('keyup', checkBookingFields);
+// bookNowButton.addEventListener('click', saveNewTrip);
+// cancelNowButton.addEventListener('click', checkBookingFields);
 
 // const getRandomID = () => {
 //   return Math.floor(Math.random() * 50);
@@ -123,30 +123,23 @@ function updateDestinationsSelectionMenu(){
   //HOW CAN I SORT THE DESTINATIONS IN THE DROP DOWN MENU?
   // destinationNames.sort((a, b) => a - b);
   let output = destinationNames.forEach(name => {
-    destinationSelectionMenu.innerHTML +=
+    destinationInput.innerHTML +=
       `<option value="text" class="destination-name">${name}</option>`;
   })
   return output;
 }
 
-
-
-/*~~~~~~~~Function to check input fields~~~~~~~*/
-// function checkBookingFields() {
-//   if (dateInput.value !== "" && numTravelers.value !== "" &&
-//     durationInput.value !== "" && destinationInput.value !== "") {
-//     bookNowButton.classList.remove('disable');
-//     bookNowButton.disabled = false;
-//   } else {
-//     bookNowButton.classList.add('disable');
-//     bookNowButton.disabled = true;
-//   }
-// }
-
-
-
-
-
+function checkBookingFields() {
+  if (dateInput.value !== "" && numTravelers.value !== "" &&
+    durationInput.value !== "" && destinationInput.value !== "--Please choose a destination--") {
+    bookNowButton.classList.remove('disable');
+    bookNowButton.disabled = false;
+    // calculate trip estimate
+  } else {
+    bookNowButton.classList.add('disable');
+    bookNowButton.disabled = true;
+  }
+}
 
 
 // function renderPendingTrips() {
