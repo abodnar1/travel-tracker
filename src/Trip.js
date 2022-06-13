@@ -1,7 +1,5 @@
-// import Destination from '../src/Destination';
-
 class Trip {
-  constructor(trip, destinations) {
+  constructor(trip) {
     this.id = trip.id;
     this.userID = trip.userID;
     this.destinationID = trip.destinationID;
@@ -10,19 +8,17 @@ class Trip {
     this.duration = trip.duration;
     this.status = trip.status;
     this.suggestedActivities = trip.suggestedActivities;
-    this.destinationName = destinations.find(destination => destination.id === trip.destinationID).destination;
-    this.destinationCostPerDay = destinations.find(destination => destination.id === trip.destinationID).estimatedLodgingCostPerDay;
-    this.destinationFlightCost = destinations.find(destination => destination.id === trip.destinationID).estimatedFlightCostPerPerson;
-    this.destinationImage = destinations.find(destination => destination.id === trip.destinationID).image;
-    this.destinationAltText = destinations.find(destination => destination.id === trip.destinationID).alt;
   }
 
-  calculateTripCost() {
-    const costOfLodging = this.duration * this.destinationCostPerDay;
-    const costOfFlights = this.travelers * this.destinationFlightCost;
+  calculateTripCost(allDestinationsData) {
+    const costPerDay = allDestinationsData.find(destination => destination.id === this.destinationID).estimatedLodgingCostPerDay;
+    const costPerFlight = allDestinationsData.find(destination => destination.id === this.destinationID).estimatedFlightCostPerPerson;
+
+    const costOfLodging = this.duration * costPerDay;
+    const costOfFlights = this.travelers * costPerFlight;
     const total = Math.round((costOfLodging + costOfFlights) * 1.1)
     return total;
   }
-};
+}
 
 export default Trip;

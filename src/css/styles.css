@@ -4,6 +4,7 @@
   margin: 0px;
   padding: 0px;
   cursor: default;
+  /* border: 1px solid black; */
 }
 
 body {
@@ -46,14 +47,20 @@ h2, h3 {
   border: 2px solid black;
 }
 
+.disable {
+  cursor: not-allowed;
+}
+
 /* Card Section */
-.pending-trips-container,
-.past-trips-container,
+/* .past-trips-container,
 .present-trips-container,
-.future-trips-container {
+.future-trips-container, */
+.all-trip-cards-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
   align-items: center;
+  margin: 20px;
   border: 2px solid magenta;
 }
 
@@ -72,15 +79,15 @@ h2, h3 {
   cursor: pointer;
 } */
 
-.card-info-wrapper {
-  display:flex;
-  justify-content: right;
-  flex-direction: row;
-  height: 200px;
-  cursor: pointer;
+.card-image img{
+  background-size: cover;
+  /* cursor: pointer; */
+  /* height: 297px; */
+  max-width: 300px;
+  /* border: 1px solid black; */
 }
 
-.views-wrapper {
+/* .views-wrapper {
   text-align: center;
   color: #FFFFFF;
   margin: 20px 20px 0px 0px;
@@ -96,8 +103,7 @@ h2, h3 {
 
 .card-body {
   margin: 20px 10px 5px 5px;
-
-}
+} */
 
 h4 {
   font-size: 20px;
@@ -109,14 +115,14 @@ h4 {
   margin: 5px 0px 0px 5px;
 }
 
-.grey-description-box {
+.trip-status{
   background-color: #EFEFEF;
   margin: 5px;
   padding: 5px;
-  height: 60px;
+  height: 35px;
   width: 270px;
-  text-align: left;
-  font-size: 12px;
+  text-align: center;
+  font-size: 25px;
 }
 
 h5 {
@@ -127,4 +133,8 @@ h5 {
 .attachment-count {
   font-size: 30px;
   margin: 0px 0px 6px 5px;
+}
+
+.catch-error {
+  color: red;
 }
