@@ -3,7 +3,7 @@ const dayjs = require('dayjs');
 let todaysDate = dayjs().format("YYYY/MM/DD");
 
 class Traveler {
-  constructor (traveler, allTripsData) {
+  constructor (traveler) {
     this.id = traveler.id;
     this.name = traveler.name;
     this.travelerType = traveler.travelerType;

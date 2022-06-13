@@ -20,6 +20,8 @@ let allTravelersData;
 let allTripsData;
 let allDestinationsData;
 let currentTraveler;
+// let userID; ?
+// let newTrip; ?
 
 /*~~~~~~~~EVENT LISTENERS~~~~~~~*/
 
@@ -28,8 +30,8 @@ let currentTraveler;
 // }
 
 // const id = getRandomID();
-const id = 7;
-console.log(id)
+const id = 3;
+console.log("traveler id: ", id)
 
 /*~~~~~~~~FUNCTIONS~~~~~~~*/
 function getData(){
@@ -46,7 +48,7 @@ function getData(){
 
   .catch(error => {
     console.log(error)
-    catchError.innerText = 'We have encountered an error retrieving your data.'
+    catchError.innerText = 'There was an error retrieving your data.'
   });
 }
 
@@ -55,8 +57,9 @@ getData()
 function renderTravelerDashboard(id) {
   const traveler = allTravelersData.find(traveler => traveler.id === id);
   currentTraveler = new Traveler(traveler);
+  console.log("current traveler", currentTraveler);
   renderGreeting();
-  getTravelerTrips();
+  createTripCards();
   // domUpdates.renderPendingTrips();
   // domUpdates.renderFutureTrips();
   // domUpdates.renderPresentTrips();
@@ -68,32 +71,32 @@ function renderGreeting() {
   greeting.innerText = `Welcome back, ${currentTraveler.returnTravelerFirstName()}!`;
 }
 
-function getTravelerTrips() {
-  const output = currentTraveler.getMyTrips(allTripsData)
-  tripCardContainer.innerHTML = "";
-  const getTripCards = output.map(trip => {
-    tripCardContainer.innerHTML += (
+function createTripCards() {
 
-    `<div class="card-wrapper">
-      <div class="card-header">${trip.image}
-        <div class="card-info-wrapper">
-          <div class="views-wrapper">
-            <div class="views">VIEWS</div>
-            <div class="view-count">02</div>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="destination-name-info">
-          <h4>${trip.destinationName}</h4>
-          <div class="date">${trip.date}</div>
-        </div>
-        <p class="grey-description-box">
-          ${trip.status}
-        </p>
-      </div>
-    </div>`);
+  const output = currentTraveler.getMyTrips(allTripsData)
+  // i have my trips, now what do i want to do with that that array?
+  // i need to access my trips class and get the properties of that trip
+  // xxx = new Trip(trip, allDestinationsData);
+
+  console.log("output", output);
+  tripCardContainer.innerHTML = "";
+
+  const getTripCards = output.forEach(trip => {
+     tripCardContainer.innerHTML += (
+     `<div class="card-wrapper">
+       <div class="card-image">${trip.destinationImage}</div>
+       <div class="card-body">
+         <div class="destination-name-info">
+           <h4>${trip.destinationName}</h4>
+           <div class="date">${trip.date}</div>
+         </div>
+         <p class="grey-description-box">Trip Status: ${trip.status}</p>
+       </div>
+     </div>`);
+
+    return tripCardContainer;
   })
+
   console.log("AllTravelerTrips:", output);
   return getTripCards;
 }

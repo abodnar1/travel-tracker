@@ -4,6 +4,7 @@
   margin: 0px;
   padding: 0px;
   cursor: default;
+  /* border: 1px solid black; */
 }
 
 body {
@@ -72,15 +73,17 @@ h2, h3 {
   cursor: pointer;
 } */
 
-.card-info-wrapper {
-  display:flex;
-  justify-content: right;
-  flex-direction: row;
+.card-image {
+  background-size: cover;
+  /* display:flex;
+  justify-content: center; */
+  /* flex-direction: row; */
   height: 200px;
-  cursor: pointer;
+  /* cursor: pointer; */
+  border: 1px solid black;
 }
 
-.views-wrapper {
+/* .views-wrapper {
   text-align: center;
   color: #FFFFFF;
   margin: 20px 20px 0px 0px;
@@ -92,11 +95,10 @@ h2, h3 {
 
 .view-count {
   font-size: 30px;
-}
+} */
 
 .card-body {
   margin: 20px 10px 5px 5px;
-
 }
 
 h4 {
