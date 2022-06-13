@@ -11,8 +11,6 @@ class Destination {
     return "Destination not found";
   }
 
-  // need a function for getDestinationName?
-
   calculateTripCost(destinationID, numDays, numTravelers) {
     const output = this.destinations.reduce((acc, destination) => {
       let totalDailyCost = numDays * destination.estimatedLodgingCostPerDay;
