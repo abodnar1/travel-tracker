@@ -1,31 +1,32 @@
 class Destination {
   constructor(allDestinationsData) {
-    this.destinationsData = allDestinationsData;
+    this.destinations = allDestinationsData;
   }
 
-  getSpecificDestination(destinationID) {
-    let destination = this.destinationsData.find(location => location.id === destinationID);
+  getDestinationById(destinationID) {
+    const destination = this.destinations.find(destination => destination.id === destinationID);
     if (destination) {
       return destination;
     }
     return "Destination not found";
   }
 
+  // need a function for getDestinationName?
+
   calculateTripCost(destinationID, numDays, numTravelers) {
-    let output = this.destinationsData.reduce((acc, location) => {
-      let totalDailyCost = numDays * location.estimatedLodgingCostPerDay;
-      let totalFlightCost = numTravelers * location.estimatedFlightCostPerPerson;
-      if (location.id === destinationID) {
+    const output = this.destinations.reduce((acc, destination) => {
+      let totalDailyCost = numDays * destination.estimatedLodgingCostPerDay;
+      let totalFlightCost = numTravelers * destination.estimatedFlightCostPerPerson;
+      if (destination.id === destinationID) {
         acc += totalDailyCost;
         acc += totalFlightCost;
       }
-
       return acc;
     }, 0);
 
-    let travelAgentFee  = output * .1;
-    let total = output + travelAgentFee;
-    return total;
+    const travelAgentFee  = output * .1;
+    const totalCost = output + travelAgentFee;
+    return totalCost;
   }
 }
 

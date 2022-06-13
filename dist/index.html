@@ -13,8 +13,8 @@
 <body>
   <header>
     <h1>Travel Tracker</h1>
-    <h2 class="greeting">Hello FirstNameOfTraveler</h2>
-    <h3 class="annual-dollars-spent">You've spent $X.XX this year!</div>
+    <h2 class="greeting">greeting</h2>
+    <h3 class="annual-dollars-spent">You've spent $0.00 this year!</div>
     <p class="catch-error"></p>
   </header>
   <main>
@@ -22,9 +22,9 @@
       <form class="add-new-trip">
         <label for="start-date">Start Date:</label><br>
         <input type="date" requiredPattern="\d{4}/\d{2}/\d{2}" id="start-date" placeholder="YYYY/MM/DD" required/><br>
-        <label for="num-travelers">Number of Travelers</label><br>
+        <label for="num-travelers">Number of Travelers:</label><br>
         <input type="number" id="num-travelers" placeholder="Number of Travelers" required/><br>
-        <label for="duration">Duration</label><br>
+        <label for="duration">Duration:</label><br>
         <input type="number" id="duration" placeholder="Duration of Stay" required/><br>
         <label for="destination-select">Choose a destination:</label><br>
         <select name="destinations" id="destination-select">
@@ -34,91 +34,72 @@
             <option value="hungary">Hungary</option>
             <option value="france">France</option>
         </select>
-        <button type"submit" id="book-now-button" class="disable" disabled>Book Now!</button>
+        <div class="button-container">
+          <button type"submit" id="book-now-button" class="disable" disabled>Book Now!</button>
+          <button type"submit" id="cancel-button" class="disable" disabled>Cancel</button>
+        </div>
       </form>
-      <div class="new-trip-cost-estimator">Trip Estimation Goes Here</div>
+      <div class="new-trip-cost-estimator">Estimated cost +10% travel agent fee is $0.00</div>
     </section>
 
-    <section class="pending-trips-container">
-        <div class="card-wrapper">
-          <div class="card-image">DESTINATION IMAGE HERE</div>
-          <div class="card-body">
-            <div class="destination-name-info">
-              <h4>Destination Name Here</h4>
-              <div class="date">Insert Date of Trip</div>
-            </div>
-            <p class="grey-description-box">Trip Status:</p>
-          </div>
+    <section class="all-trip-cards-container">
+      <!-- <div class="card-wrapper">
+        <div class="card-image">
+          <img class="destination-img" src="./images/turing-logo.png" alt="destination-image">
         </div>
+        <div class="card-body">
+          <div class="destination-name-info">
+            <h4>Destination Name Here</h4>
+            <div class="date">Date of Trip</div>
+          </div>
+          <p class="trip-status">Trip Status:</p>
+        </div>
+      </div> -->
     </section>
-<!--
-    <section class="future-trips-container">
-        <div class="card-wrapper">
-          <div class="card-header">DESTINATION IMAGE HERE
-            <div class="card-info-wrapper">
-              <div class="views-wrapper">
-                <div class="views">VIEWS</div>
-                <div class="view-count">02</div>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="destination-name-info">
-              <h4>Destination Name Here</h4>
-              <div class="date">Insert Date of Trip</div>
-            </div>
-            <p class="grey-description-box">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
+
+    <!-- <section class="future-trips-container">
+      <div class="card-wrapper">
+        <div class="card-image">
+          <img class="destination-img" src="./images/turing-logo.png" alt="destination-image">
         </div>
+        <div class="card-body">
+          <div class="destination-name-info">
+            <h4>Destination Name Here</h4>
+            <div class="date">Date of Trip</div>
+          </div>
+          <p class="trip-status">Trip Status:</p>
+        </div>
+      </div>
     </section>
 
     <section class="present-trips-container">
-        <div class="card-wrapper">
-          <div class="card-header">DESTINATION IMAGE HERE
-            <div class="card-info-wrapper">
-              <div class="views-wrapper">
-                <div class="views">VIEWS</div>
-                <div class="view-count">02</div>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="destination-name-info">
-              <h4>Destination Name Here</h4>
-              <div class="date">Insert Date of Trip</div>
-            </div>
-            <p class="grey-description-box">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
+      <div class="card-wrapper">
+        <div class="card-image">
+          <img class="destination-img" src="./images/turing-logo.png" alt="destination-image">
         </div>
+        <div class="card-body">
+          <div class="destination-name-info">
+            <h4>Destination Name Here</h4>
+            <div class="date">Date of Trip</div>
+          </div>
+          <p class="trip-status">Trip Status:</p>
+        </div>
+      </div>
     </section>
 
     <section class="past-trips-container">
-        <div class="card-wrapper">
-          <div class="card-header">DESTINATION IMAGE HERE
-            <div class="card-info-wrapper">
-              <div class="views-wrapper">
-                <div class="views">VIEWS</div>
-                <div class="view-count">02</div>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="destination-name-info">
-              <h4>Destination Name Here</h4>
-              <div class="date">Insert Date of Trip</div>
-            </div>
-            <p class="grey-description-box">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
+      <div class="card-wrapper">
+        <div class="card-image">
+          <img class="destination-img" src="./images/turing-logo.png" alt="destination-image">
         </div>
+        <div class="card-body">
+          <div class="destination-name-info">
+            <h4>Destination Name Here</h4>
+            <div class="date">Date of Trip</div>
+          </div>
+          <p class="trip-status">Trip Status:</p>
+        </div>
+      </div>
     </section> -->
 
   </main>
