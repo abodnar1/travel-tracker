@@ -44,7 +44,7 @@ cancelButton.addEventListener('click', resetForm);
 // }
 //
 // const id = getRandomID();
-const id = 3;
+const id = 13;
 console.log("traveler id: ", id)
 
 /*~~~~~~~~FUNCTIONS~~~~~~~*/
@@ -116,8 +116,13 @@ function createTripCards() {
   return getTripCards;
 }
 
+
+
+
+
+
 function updateDestinationsSelectionMenu(){
-  destinationInput.innerHTML = `<option value="" disabled selected>Choose a destination</option>`;
+  destinationInput.innerHTML = `<option value="" disabled selected>Where do you want to go?</option>`;
   const destinationNames = allDestinationsData.forEach(destination => {
     destinationInput.innerHTML +=
       `<option value="${destination.id}" class="destination-name">${destination.destination}</option>`;

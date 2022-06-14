@@ -12,12 +12,13 @@
 </head>
 
   <body>
-  <section class="login hidden">
+  <!-- <section class="login hidden">
   <input type="text" id="username" placeholder="username" required/><br>
   <label for="username"></label><br>
   <input type="text" id="password" placeholder="password" required/><br>
   <label for="password"></label><br>
-  </section>
+  </section> -->
+
   <section class="app">
     <header>
       <h1>Travel Tracker</h1>
@@ -29,15 +30,15 @@
       <form class="add-new-trip">
         <label for="startDate">Start Date:</label><br>
         <input type="date" requiredPattern="\d{4}/\d{2}/\d{2}" id="startDate" placeholder="YYYY/MM/DD" required/><br>
-        <label for="numTravelers">Number of Travelers:</label><br>
+        <label for="numTravelers"></label><br>
         <input type="number" id="numTravelers" placeholder="Number of Travelers" required/><br>
-        <label for="duration">Duration:</label><br>
+        <label for="duration"></label><br>
         <input type="number" id="duration" placeholder="Duration of Stay" required/><br>
-        <label for="destinationInput">Where do you want to go?</label><br>
-        <select name="destinations" id="destinationInput" required>Choose a destination!</select>
+        <label for="destinationInput"></label><br>
+        <select name="destinations" id="destinationInput" required></select>
         <div class="button-container">
-          <button type"submit" id="bookNowButton" disabled>Book Now!</button>
-          <button type"submit" id="cancelButton">Cancel</button>
+          <button type"submit" class="button" id="bookNowButton" disabled>Book Now!</button>
+          <button type"submit" class="button" id="cancelButton">Cancel</button>
         </div>
       </form>
       <div class="new-trip-cost-estimator">Estimated cost +10% travel agent fee is $0.00</div>
@@ -59,8 +60,8 @@
       </div> -->
     </section>
 
-    <!-- <section class="future-trips-container">
-      <div class="card-wrapper">
+    <section class="future-trips-container">
+      <!-- <div class="card-wrapper">
         <div class="card-image">
           <img class="destination-img" src="./images/turing-logo.png" alt="destination-image">
         </div>
@@ -71,11 +72,11 @@
           </div>
           <p class="trip-status">Trip Status:</p>
         </div>
-      </div>
+      </div> -->
     </section>
 
     <section class="present-trips-container">
-      <div class="card-wrapper">
+      <!-- <div class="card-wrapper">
         <div class="card-image">
           <img class="destination-img" src="./images/turing-logo.png" alt="destination-image">
         </div>
@@ -86,11 +87,11 @@
           </div>
           <p class="trip-status">Trip Status:</p>
         </div>
-      </div>
+      </div> -->
     </section>
 
     <section class="past-trips-container">
-      <div class="card-wrapper">
+      <!-- <div class="card-wrapper">
         <div class="card-image">
           <img class="destination-img" src="./images/turing-logo.png" alt="destination-image">
         </div>
