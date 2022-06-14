@@ -16,7 +16,8 @@ class Traveler {
   }
 
   getMyTrips(allTripsData) {
-    const myTrips = allTripsData.filter(trip => this.id === trip.userID);
+    const myTrips = allTripsData.filter(trip => this.id === trip.userID)
+    // myTrips.map(trip => new Trip(trip));
     const sortedTrips = myTrips.sort((a, b) => {
       let dateA = new Date (a.date);
       let dateB = new Date (b.date);
