@@ -3,7 +3,7 @@ export function fetchData(type) {
     .then(response => checkForErrors(response));
 }
 
-let promise = Promise.all([fetchData('travelers'),fetchData('trips'), fetchData('destinations')])
+let promise = Promise.all([fetchData('travelers'), fetchData('trips'), fetchData('destinations')])
 
 function checkForErrors(response) {
   if (response.ok) {
@@ -14,7 +14,7 @@ function checkForErrors(response) {
   }
 }
 
-export function postNewTrip(travelerInput){
+export function postNewTrip(travelerInput) {
   return fetch('http://localhost:3001/api/v1/trips', {
     method: 'POST',
     body: JSON.stringify({

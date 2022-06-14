@@ -16,7 +16,7 @@ class Trip {
 
     const costOfLodging = this.duration * costPerDay;
     const costOfFlights = this.travelers * costPerFlight;
-    const total = Math.round((costOfLodging + costOfFlights) * 1.1)
+    const total = Math.round((costOfLodging + costOfFlights) * 1.1);
     return total;
   }
 }

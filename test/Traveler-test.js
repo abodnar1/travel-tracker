@@ -3,16 +3,13 @@ import Traveler from '../src/Traveler';
 import { allTravelersData } from '../src/data/sample-travelers-data';
 import { allTripsData } from '../src/data/sample-trip-data';
 import { allDestinationsData } from '../src/data/sample-destination-data';
-const dayjs = require('dayjs');
 
 describe('Traveler', () => {
-  let todaysDate;
   let traveler1;
   let traveler2;
   let traveler3;
 
   beforeEach(() => {
-    todaysDate = dayjs().format("YYYY/MM/DD");
     traveler1 = new Traveler(allTravelersData[0]);
     traveler2 = new Traveler(allTravelersData[4]);
     traveler3 = new Traveler(allTravelersData[28]);
