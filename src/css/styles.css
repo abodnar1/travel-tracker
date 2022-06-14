@@ -3,8 +3,7 @@
   font-size: 16px;
   margin: 0px;
   padding: 0px;
-  cursor: default;
-  /* border: 1px solid black; */
+  /* cursor: default; */
 }
 
 body {
@@ -13,38 +12,62 @@ body {
 }
 
 header {
-  border: 2px solid blue;
+  border-bottom: 2px solid purple;
 }
 
 h1 {
   font-size: 40px;
-  border: 2px solid pink;
+  margin: 5px 0px 5px 10px;
 }
 
-h2, h3 {
-  font-size: 20px;
+h2 {
+  font-size: 26px;
   text-align: right;
+  margin-right: 10px;
+}
+
+h3 {
+  text-align: right;
+  margin: 5px 40px 5px 0px;
+}
+
+input::-webkit-calendar-picker-indicator,
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  cursor: pointer;
 }
 
 .bookings-wrapper {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  border: 2px solid purple;
 }
 
 .add-new-trip {
   display: flex;
-  border: 2px solid green;
   flex-direction: column;
+  margin: 25px 0px 25px 0px;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
+}
+
+.button {
+  margin: 15px;
+  padding: 5px;
+  cursor: pointer;
 }
 
 .new-trip-cost-estimator {
   height: 200px;
   display: flex;
   align-items: center;
-  border: 2px solid black;
 }
 
 .disable {
@@ -52,59 +75,43 @@ h2, h3 {
 }
 
 /* Card Section */
-/* .past-trips-container,
+.past-trips-container,
 .present-trips-container,
-.future-trips-container, */
+.future-trips-container,
 .all-trip-cards-container {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
   align-items: center;
-  margin: 20px;
-  border: 2px solid magenta;
+  margin: 5px;
+  border: 2px solid black;
 }
 
 .card-wrapper {
   margin: 5px;
   padding: 5px;
-  height: 450px;
+  height: 300px;
   width: 300px;
   box-shadow: 2px 2px 2px grey;
   background-color: #FFFFFF;
 }
 
-/* .card-wrapper:hover{
-  transform: scale(1.1);
+.card-wrapper:hover{
+  transform: scale(1.01);
   box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-} */
+}
 
-.card-image img{
+.card-image {
   background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
   /* cursor: pointer; */
-  /* height: 297px; */
-  max-width: 300px;
-  /* border: 1px solid black; */
-  /* switch to try 25vh */
 }
 
-/* .views-wrapper {
-  text-align: center;
-  color: #FFFFFF;
-  margin: 20px 20px 0px 0px;
+img {
+  height: 20vh;
 }
-
-.views {
-  font-size: 15px;
-}
-
-.view-count {
-  font-size: 30px;
-}
-
-.card-body {
-  margin: 20px 10px 5px 5px;
-} */
 
 h4 {
   font-size: 20px;
@@ -124,16 +131,6 @@ h4 {
   width: 270px;
   text-align: center;
   font-size: 25px;
-}
-
-h5 {
-  font-size: 12px;
-  margin: 20px 0px 6px 5px;
-}
-
-.attachment-count {
-  font-size: 30px;
-  margin: 0px 0px 6px 5px;
 }
 
 .catch-error {
