@@ -87,7 +87,7 @@ function createTripCards() {
     allDestinationsData.forEach(destination => {
       if (trip.destinationID === destination.id) {
         tripCardContainer.innerHTML += (
-          `<div class="card-wrapper">
+          `<div tabindex="0" class="card-wrapper">
           <div class="card-image">
             <img class="destination-img" src="${destination.image}" alt="${destination.alt}">
           </div>
@@ -96,7 +96,7 @@ function createTripCards() {
               <h4>${destination.destination}</h4>
               <div class="date">${trip.date}</div>
             </div>
-            <p class="trip-status">${trip.status}</p>
+            <h5 class="trip-status">${trip.status}</h5>
           </div>
         </div>`);
       }
