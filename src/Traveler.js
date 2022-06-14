@@ -17,7 +17,6 @@ class Traveler {
 
   getMyTrips(allTripsData) {
     const myTrips = allTripsData.filter(trip => this.id === trip.userID)
-    // myTrips.map(trip => new Trip(trip));
     const sortedTrips = myTrips.sort((a, b) => {
       let dateA = new Date (a.date);
       let dateB = new Date (b.date);
@@ -27,30 +26,6 @@ class Traveler {
     this.myTrips = sortedTrips;
     return this.myTrips;
   }
-
-  // getPastTrips(allTripsData, todaysDate) {
-  //   const pastTrips = allTripsData.filter(trip => this.id === trip.userID && trip.date < todaysDate);
-  //   this.myPastTrips = pastTrips;
-  //   return pastTrips;
-  // }
-  //
-  // getPresentTrips(allTripsData, todaysDate) {
-  //   const presentTrips = allTripsData.filter(trip => this.id === trip.userID && trip.date === todaysDate);
-  //   this.myPresentTrips = presentTrips;
-  //   return presentTrips;
-  // }
-  //
-  // getUpcomingTrips(allTripsData, todaysDate) {
-  //   const upcomingTrips = allTripsData.filter(trip => this.id === trip.userID && trip.date > todaysDate);
-  //   this.myFutureTrips = upcomingTrips;
-  //   return upcomingTrips;
-  // }
-  //
-  // getPendingTrips(allTripsData) {
-  //   const pendingTrips = allTripsData.filter(trip => this.id === trip.userID && trip.status === "pending");
-  //   this.myPendingTrips = pendingTrips;
-  //   return pendingTrips;
-  // }
 
   calculateYearlySpend(allDestinationsData, year) {
     const approvedTrips = this.myTrips.filter(trip => trip.status === "approved");

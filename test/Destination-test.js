@@ -3,10 +3,12 @@ import Destination from '../src/Destination';
 import { allDestinationsData } from '../src/data/sample-destination-data';
 
 describe('Destination', () => {
-  let destinations;
+  let destination1;
+  let destination2;
 
   beforeEach(() => {
-    destinations = new Destination(allDestinationsData);
+    destination1 = new Destination(allDestinationsData[0]);
+    destination2 = new Destination(allDestinationsData[1]);
   });
 
   it('should be a function', () => {
@@ -14,21 +16,37 @@ describe('Destination', () => {
   });
 
   it('should be an instance of Destination', () => {
-    expect(destinations).to.be.an.instanceOf(Destination);
+    expect(destination1).to.be.an.instanceOf(Destination);
+    expect(destination2).to.be.an.instanceOf(Destination);
   });
 
-  it('should have a parameter to take in all destinations data', () => {
-    expect(destinations.destinations).to.deep.equal(allDestinationsData);
+  it('should be able to store a destination id', () => {
+    expect(destination1.id).to.equal(1);
+    expect(destination2.id).to.equal(2);
   });
 
-  it('should be able to return a specific destination using its id', () => {
-    expect(destinations.getDestinationById(1)).to.deep.equal(allDestinationsData[0]);
-    expect(destinations.getDestinationById(8)).to.deep.equal(allDestinationsData[7]);
-    expect(destinations.getDestinationById(11)).to.equal('Destination not found');
+  it('should be able to store the destination\'s location', () => {
+    expect(destination1.destination).to.equal('Lima, Peru');
+    expect(destination2.destination).to.equal('Stockholm, Sweden');
   });
 
-  it('should be able to calculate the total cost of the trip using a trip\'s duration and number of travelers', () => {
-    expect(destinations.calculateTripCost(28, 15, 3)).to.equal(4125);
-    expect(destinations.calculateTripCost(5, 16, 1)).to.equal(3355);
+  it('should be able to store the estimated lodging cost per day', () => {
+    expect(destination1.estimatedLodgingCostPerDay).to.equal(70);
+    expect(destination2.estimatedLodgingCostPerDay).to.equal(100);
+  });
+
+  it('should be able to store the estimated flight cost per person', () => {
+    expect(destination1.estimatedFlightCostPerPerson).to.equal(400);
+    expect(destination2.estimatedFlightCostPerPerson).to.equal(780);
+  });
+
+  it('should be able to store the stock image', () => {
+    expect(destination1.image).to.equal('https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80');
+    expect(destination2.image).to.equal('https://images.unsplash.com/photo-1560089168-6516081f5bf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
+  });
+
+  it('should be able to store the alt text for the stock image', () => {
+    expect(destination1.alt).to.equal('overview of city buildings with a clear sky');
+    expect(destination2.alt).to.equal('city with boats on the water during the day time');
   });
 });

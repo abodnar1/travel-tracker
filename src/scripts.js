@@ -20,6 +20,7 @@ var newTripEstimate = document.querySelector(".new-trip-cost-estimator")
 var bookNowButton = document.getElementById("bookNowButton");
 var cancelButton = document.getElementById("cancelButton");
 var estimate = document.querySelector(".new-trip-cost-estimator");
+var addTripConfirmation = document.querySelector(".add-trip-confirmation");
 
 /*~~~~~~~~GLOBAL VARIABLES~~~~~~~*/
 const dayjs = require('dayjs');
@@ -44,18 +45,18 @@ cancelButton.addEventListener('click', resetForm);
 // }
 //
 // const id = getRandomID();
-const id = 13;
+const id = 3;
 console.log("traveler id: ", id)
 
 /*~~~~~~~~FUNCTIONS~~~~~~~*/
 function getData() {
   promise.then(data => {
-    allTravelersData = data[0].travelers;
+    allTravelersData = data[0].travelers.map(traveler => new Traveler(traveler));
     allTripsData = data[1].trips.map(trip => new Trip(trip));
-    allDestinationsData = data[2].destinations;
-    console.log("Travelers Data:", allTravelersData);
-    console.log("Trips Data:", allTripsData);
-    console.log("Destinations Data:", allDestinationsData);
+    allDestinationsData = data[2].destinations.map(destination => new Destination(destination));
+    // console.log("Travelers Data:", allTravelersData);
+    // console.log("Trips Data:", allTripsData);
+    // console.log("Destinations Data:", allDestinationsData);
 
     renderTravelerDashboard(id);
     updateDestinationsSelectionMenu()
@@ -71,12 +72,12 @@ getData()
 
 function renderTravelerDashboard(id) {
   const traveler = allTravelersData.find(traveler => traveler.id === id);
-  currentTraveler = new Traveler(traveler);
+  currentTraveler = traveler;
 
-  console.log("current traveler", currentTraveler);
+  // console.log("current traveler", currentTraveler);
   renderGreeting();
-  renderAnnualSpend();
   createTripCards();
+  renderAnnualSpend();
 }
 
 function renderGreeting() {
@@ -84,15 +85,19 @@ function renderGreeting() {
 }
 
 function renderAnnualSpend() {
-  annualTripSpend.innerText = `You've spent $${currentTraveler.calculateYearlySpend(allDestinationsData, year)} this year!`;
+  const totalSpentYTD = currentTraveler.calculateYearlySpend(allDestinationsData, year);
+  // console.log("currentTraveler", currentTraveler)
+  // console.log(currentTraveler.calculateYearlySpend(allDestinationsData, year));
+  // console.log(year);
+  return annualTripSpend.innerText = `You've spent $${totalSpentYTD} this year!`;
 }
 // add if 0 is spent, say "You haven't taken any trips this year - book one now!"
 
 function createTripCards() {
-  const sortedTrips = currentTraveler.getMyTrips(allTripsData)
   tripCardContainer.innerHTML = "";
-  console.log("sortedTrips", sortedTrips);
-
+  const sortedTrips = currentTraveler.getMyTrips(allTripsData)
+  // console.log("sortedTrips", sortedTrips);
+// add if else here?
   const getTripCards = sortedTrips.forEach(trip => {
     allDestinationsData.forEach(destination => {
       if (trip.destinationID === destination.id) {
@@ -116,60 +121,86 @@ function createTripCards() {
   return getTripCards;
 }
 
+// i need to filter on the travelers all trips array and return only those approved
+// AND with a date after today's date.
+
+// function createUpcomingTripCards {
+//   const sortedTrips = currentTraveler.getMyTrips(allTripsData)
+//   tripCardContainer.innerHTML = "";
+//
+//
+//   const getTripCards = sortedTrips.forEach(trip => {
+//     allDestinationsData.forEach(destination => {
+//       if (trip.destinationID === destination.id) {
+//         tripCardContainer.innerHTML += (
+//         `<div class="card-wrapper">
+//           <div class="card-image">
+//             <img class="destination-img" src="${destination.image}" alt="${destination.alt}">
+//           </div>
+//           <div class="card-body">
+//             <div class="destination-name-info">
+//               <h4>${destination.destination}</h4>
+//               <div class="date">${trip.date}</div>
+//             </div>
+//             <p class="trip-status">${trip.status}</p>
+//           </div>
+//         </div>`);
+//       }
+//     })
+//     return tripCardContainer;
+//   })
+//   return getTripCards;
+//   }
+//
+// }
 
 
 
 
 
 function updateDestinationsSelectionMenu(){
-  destinationInput.innerHTML = `<option value="" disabled selected>Where do you want to go?</option>`;
-  const destinationNames = allDestinationsData.forEach(destination => {
+  destinationInput.innerHTML = `<option value="" disabled selected>Please choose a destination?</option>`;
+  // const sortedDestinations = allDestinationsData.sort((a, b) => {
+  //   console.log(allDestinationsData)
+  //   return a.destination - b.destination;
+  // })
+  allDestinationsData.forEach(destination => {
     destinationInput.innerHTML +=
       `<option value="${destination.id}" class="destination-name">${destination.destination}</option>`;
-      //HOW CAN I SORT THE DESTINATIONS IN THE DROP DOWN MENU?
-      // destinationNames.sort((a, b) => a[0] - b[0]);
   })
 }
 
 function createNewTrip() {
   let id = allTripsData.length + 1;
-  console.log(id)
-
-  let newDate = dateInput.value.split('-');
-  newDate = newDate.join('/');
-  console.log("new date: ", newDate)
-
+  let newDate = dateInput.value.split('-').join('/');
   let destination = parseInt(destinationInput.value);
-  console.log("destination: ", destination);
-
   let travelers = parseInt(numTravelers.value);
-  console.log("numTravelers: ", travelers);
-
   let duration = parseInt(durationInput.value);
-  console.log("duration: ", duration);
-
   let status = "pending";
-  console.log("status: ", status);
+
+  // console.log("status: ", status);
+  // console.log("trip id", id)
+  // console.log("new date: ", newDate)
+  // console.log("destination: ", destination);
+  // console.log("numTravelers: ", travelers);
+  // console.log("duration: ", duration);
 
   newTrip = new Trip({
-    id,
+    id: id,
     userID: currentTraveler.id,
     destinationID: destination,
-    travelers,
+    travelers: travelers,
     date: newDate,
-    duration,
-    status,
+    duration: duration,
+    status: status,
     suggestedActivities: []
   })
-  estimate.innerHTML = newTrip.calculateTripCost(allDestinationsData);
-
+  estimate.innerHTML = `This trip will cost $${newTrip.calculateTripCost(allDestinationsData)}`;
   return newTrip;
 }
 
 function saveNewTrip(event) {
   event.preventDefault();
-
-  console.log("line 168: ", newTrip)
   postNewTrip(newTrip)
     .then(data => {
       allTripsData.unshift(data);
@@ -177,10 +208,18 @@ function saveNewTrip(event) {
       createTripCards();
       resetForm();
       window.location.reload();
-  });
+      // setTimeout(() => {
+      //   addTripConfirmation.innerHTML = `Trip with id #${newTrip.id} successfully posted`, 10000
+      // })
+      // addTripConfirmation.innerHTML = "";
+  // }).catch(error => {
+  //   addTripConfirmation.innerHTML = "There was an error booking your trip";
+  //   console.log(error);
+  })
 }
 
 function resetForm() {
+  estimate.innerHTML = "See your estimate here (fees included)";
   dateInput.value = "";
   numTravelers.value = "";
   durationInput.value = ""
@@ -198,29 +237,3 @@ function checkBookingFields() {
     bookNowButton.classList.add('disable');
   }
 }
-
-
-// function renderPendingTrips() {
-//   // populate pending trips;
-//   // for each trip in that array, populate a card?
-// }
-//
-// function renderUpcomingTrips() {
-//   // populate pending trips;
-//   // for each trip in that array, populate a card?
-// }
-//
-// function renderPresentTrips() {
-//   // populate present trips;
-//   // for each trip in that array, populate a card?
-// }
-//
-// function renderPastTrips() {
-//   const pastTrips = currentTraveler.getMyPastTrips(allTripsData, todaysDate);
-//   // let output = pastTrips.map(trip => trip.destinationID)
-//   // testPastTrips.innerText = `Past Trips: ${output}`;
-//
-//   let sortedPastTrips = pastTrips.sort((a, b) => b.date - a.date);
-//   console.log("Line 92:", sortedPastTrips)
-//   return sortedPastTrips;
-// }
