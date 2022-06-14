@@ -1,6 +1,4 @@
 import Trip from '../src/Trip';
-const dayjs = require('dayjs');
-let todaysDate = dayjs().format("YYYY/MM/DD");
 
 class Traveler {
   constructor (traveler) {
