@@ -85,6 +85,7 @@ h2, h3 {
   /* height: 297px; */
   max-width: 300px;
   /* border: 1px solid black; */
+  /* switch to try 25vh */
 }
 
 /* .views-wrapper {
@@ -137,4 +138,8 @@ h5 {
 
 .catch-error {
   color: red;
+}
+
+.hidden {
+  display: none;
 }

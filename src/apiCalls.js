@@ -14,4 +14,23 @@ function checkForErrors(response) {
   }
 }
 
+export function postNewTrip(travelerInput){
+  return fetch('http://localhost:3001/api/v1/trips', {
+    method: 'POST',
+    body: JSON.stringify({
+      id: travelerInput.id,
+      userID: travelerInput.userID,
+      destinationID: travelerInput.destinationID,
+      travelers: travelerInput.travelers,
+      date: travelerInput.date,
+      duration: travelerInput.duration,
+      status: "pending",
+      suggestedActivities: travelerInput.suggestedActivities
+    }),
+    headers: {'Content-Type': 'application/json'}
+  })
+    .then(response => checkForErrors(response))
+    .catch(error => console.log('Error'))
+}
+
 export { promise }

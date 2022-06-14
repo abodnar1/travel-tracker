@@ -10,14 +10,21 @@
   <!-- <link rel="stylesheet" href="styles.css"> -->
   <title>Travel Tracker</title>
 </head>
-<body>
-  <header>
-    <h1>Travel Tracker</h1>
-    <h2 class="greeting"></h2>
-    <h3 class="annual-dollars-spent"></div>
-    <p class="catch-error"></p>
-  </header>
-  <main>
+
+  <body>
+  <section class="login hidden">
+  <input type="text" id="username" placeholder="username" required/><br>
+  <label for="username"></label><br>
+  <input type="text" id="password" placeholder="password" required/><br>
+  <label for="password"></label><br>
+  </section>
+  <section class="app">
+    <header>
+      <h1>Travel Tracker</h1>
+      <h2 class="greeting"></h2>
+      <h3 class="annual-dollars-spent"></div>
+      <p class="catch-error"></p>
+    </header>
     <section class="bookings-wrapper">
       <form class="add-new-trip">
         <label for="startDate">Start Date:</label><br>
@@ -27,19 +34,17 @@
         <label for="duration">Duration:</label><br>
         <input type="number" id="duration" placeholder="Duration of Stay" required/><br>
         <label for="destinationInput">Where do you want to go?</label><br>
-        <select name="destinations" id="destinationInput" required>
-            <option value="destination" id="destination">--Please choose a destination--</option>
-            <!-- <option value="text" class="destination-name"></option> -->
-        </select>
+        <select name="destinations" id="destinationInput" required>Choose a destination!</select>
         <div class="button-container">
-          <button type"submit" id="bookNowButton" class="book-now-button" "disable" disabled>Book Now!</button>
-          <button type"submit" id="cancelButton" class="disable" disabled>Cancel</button>
+          <button type"submit" id="bookNowButton" disabled>Book Now!</button>
+          <button type"submit" id="cancelButton">Cancel</button>
         </div>
       </form>
       <div class="new-trip-cost-estimator">Estimated cost +10% travel agent fee is $0.00</div>
     </section>
 
-    <section class="all-trip-cards-container">
+    <main>
+      <section class="all-trip-cards-container">
       <!-- <div class="card-wrapper">
         <div class="card-image">
           <img class="destination-img" src="./images/turing-logo.png" alt="destination-image">
@@ -98,7 +103,7 @@
         </div>
       </div>
     </section> -->
-
+  </section>
   </main>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
