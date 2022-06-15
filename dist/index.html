@@ -10,7 +10,17 @@
   <title>Travel Tracker</title>
 </head>
   <body>
-  <section class="app">
+  <section class="login">
+    <p class="login-error-message"></p>
+    <form class="login-form">
+      <input type="text" id="username" placeholder="username" required/><br>
+      <label for="username"></label><br>
+      <input type="text" id="password" placeholder="password" required/><br>
+      <label for="password"></label><br>
+      <button type"submit" class="login" id="loginButton">Login</button>
+    </form>
+  </section>
+  <section class="app hidden">
     <header>
       <h1>Travel Tracker</h1>
       <h2 class="greeting"></h2>

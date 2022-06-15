@@ -13,11 +13,15 @@ var dateInput = document.getElementById("startDate");
 var numTravelers = document.getElementById("numTravelers");
 var durationInput = document.getElementById("duration");
 var destinationInput = document.getElementById("destinationInput");
-var newTripEstimate = document.querySelector(".new-trip-cost-estimator")
 var bookNowButton = document.getElementById("bookNowButton");
 var cancelButton = document.getElementById("cancelButton");
 var estimate = document.querySelector(".new-trip-cost-estimator");
-var addTripConfirmation = document.querySelector(".add-trip-confirmation");
+var usernameInput = document.getElementById("username");
+var passwordInput = document.getElementById("password");
+var loginButton = document.getElementById("loginButton");
+var loginPage = document.querySelector(".login");
+var application = document.querySelector(".app");
+var loginErrorMessage = document.querySelector(".login-error-message");
 
 /*~~~~~~~~GLOBAL VARIABLES~~~~~~~*/
 let year = "2022";
@@ -25,9 +29,10 @@ let allTravelersData;
 let allTripsData;
 let allDestinationsData;
 let currentTraveler;
-let newTrip;
+let travelerID;
 
 /*~~~~~~~~EVENT LISTENERS~~~~~~~*/
+loginButton.addEventListener('click', validateLogin);
 dateInput.addEventListener('keyup', checkBookingFields);
 numTravelers.addEventListener('keyup', checkBookingFields);
 durationInput.addEventListener('keyup', checkBookingFields);
@@ -35,40 +40,47 @@ destinationInput.addEventListener('input', checkBookingFields);
 bookNowButton.addEventListener('click', saveNewTrip);
 cancelButton.addEventListener('click', resetForm);
 
-// const getRandomID = () => {
-//   return Math.floor(Math.random() * 50);
-// }
-//
-// const id = getRandomID();
-const id = 3;
-console.log("traveler id: ", id)
-
 /*~~~~~~~~FUNCTIONS~~~~~~~*/
+function validateLogin(event) {
+  event.preventDefault();
+
+  let username = usernameInput.value;
+  let password = passwordInput.value;
+
+  if (username.startsWith("traveler") && password === "travel") {
+    travelerID = parseInt(username.slice(8));
+    loginPage.classList.add("hidden");
+    application.classList.remove("hidden");
+    getData();
+  } else {
+    loginErrorMessage.innerHTML = "The Username and Password don't match our records, please check them and try logging in again."
+  }
+}
+
 function getData() {
   promise.then(data => {
     allTravelersData = data[0].travelers.map(traveler => new Traveler(traveler));
     allTripsData = data[1].trips.map(trip => new Trip(trip));
     allDestinationsData = data[2].destinations.map(destination => new Destination(destination));
-
-    renderTravelerDashboard(id);
-    updateDestinationsSelectionMenu()
+    renderTravelerDashboard(travelerID);
+    updateDestinationsSelectionMenu();
   })
-
     .catch(error => {
       console.log(error)
-      catchError.innerText = 'There was an error retrieving your data.'
+      catchError.innerText = 'There was an error retrieving your data.';
     });
 }
 
-getData()
+function renderTravelerDashboard(travelerID) {
+  if (!currentTraveler) {
+    const traveler = allTravelersData.find(traveler => traveler.id === travelerID);
+    currentTraveler = traveler;
+    currentTraveler.getMyTrips(allTripsData)
 
-function renderTravelerDashboard(id) {
-  const traveler = allTravelersData.find(traveler => traveler.id === id);
-  currentTraveler = traveler;
-
-  renderGreeting();
-  createTripCards();
-  renderAnnualSpend();
+    renderGreeting();
+    createTripCards();
+    renderAnnualSpend();
+  }
 }
 
 function renderGreeting() {
@@ -82,7 +94,7 @@ function renderAnnualSpend() {
 
 function createTripCards() {
   tripCardContainer.innerHTML = "";
-  const sortedTrips = currentTraveler.getMyTrips(allTripsData)
+  const sortedTrips = currentTraveler.myTrips;
   const getTripCards = sortedTrips.forEach(trip => {
     allDestinationsData.forEach(destination => {
       if (trip.destinationID === destination.id) {
@@ -122,7 +134,7 @@ function createNewTrip() {
   let duration = parseInt(durationInput.value);
   let status = "pending";
 
-  newTrip = new Trip({
+  let newTrip = new Trip({
     id,
     userID: currentTraveler.id,
     destinationID: destination,
@@ -131,27 +143,18 @@ function createNewTrip() {
     duration,
     status,
     suggestedActivities: []
-  })
+  });
   estimate.innerHTML = `This trip will cost $${newTrip.calculateTripCost(allDestinationsData)}`;
   return newTrip;
 }
 
-function saveNewTrip(event) {
+function saveNewTrip() {
   event.preventDefault();
-  postNewTrip(newTrip)
-    .then(data => {
-      allTripsData.unshift(data);
-      currentTraveler.myTrips.unshift(data);
-      createTripCards();
-      resetForm();
-      window.location.reload();
-      // setTimeout(() => {
-      //   addTripConfirmation.innerHTML = `Trip with id #${newTrip.id} successfully posted`, 10000
-      // })
-    // }).catch(error => {
-    //   addTripConfirmation.innerHTML = "There was an error booking your trip";
-    //   console.log(error);
-    })
+  let newTrip = createNewTrip();
+  currentTraveler.myTrips.unshift(newTrip);
+  createTripCards();
+  resetForm();
+  postNewTrip(newTrip);
 }
 
 function resetForm() {

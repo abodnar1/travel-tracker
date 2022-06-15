@@ -32,6 +32,9 @@ input[type=number]::-webkit-outer-spin-button {
   cursor: pointer;
 }
 
+.login {
+}
+
 .bookings-wrapper {
   background: url("../images/travel-background-unsplash.png") no-repeat;
   background-position: 50% 50%;
