@@ -33,6 +33,41 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .login {
+  background: url("../images/travel-background-unsplash.png") no-repeat;
+  background-position: 50% 50%;
+  background-size: 1920px 1200px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.login-form {
+  margin: 50px;
+  padding: 25px;
+  width: 350px;
+  background-color: #E7E7E7;
+  border: 1px solid black;
+}
+
+.login-heading {
+  padding: 25px;
+}
+
+.login-button {
+  cursor: pointer;
+}
+
+.login-error-message {
+  margin: 15px;
+  color: red;
+  font-size: 12px;
+  margin-left: 15px;
+  text-align: center;
 }
 
 .bookings-wrapper {
@@ -72,6 +107,7 @@ input[type=number]::-webkit-outer-spin-button {
   height: 150px;
   display: flex;
   align-items: center;
+  padding: 20px;
   border: 1px solid black;
 }
 

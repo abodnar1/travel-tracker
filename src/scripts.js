@@ -22,6 +22,7 @@ var loginButton = document.getElementById("loginButton");
 var loginPage = document.querySelector(".login");
 var application = document.querySelector(".app");
 var loginErrorMessage = document.querySelector(".login-error-message");
+var loginHeading = document.querySelector(".login-heading");
 
 /*~~~~~~~~GLOBAL VARIABLES~~~~~~~*/
 let year = "2022";
@@ -50,6 +51,7 @@ function validateLogin(event) {
   if (username.startsWith("traveler") && password === "travel") {
     travelerID = parseInt(username.slice(8));
     loginPage.classList.add("hidden");
+    loginHeading.classList.add("hidden");
     application.classList.remove("hidden");
     getData();
   } else {
