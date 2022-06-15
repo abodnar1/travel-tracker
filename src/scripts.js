@@ -13,11 +13,9 @@ var dateInput = document.getElementById("startDate");
 var numTravelers = document.getElementById("numTravelers");
 var durationInput = document.getElementById("duration");
 var destinationInput = document.getElementById("destinationInput");
-var newTripEstimate = document.querySelector(".new-trip-cost-estimator")
 var bookNowButton = document.getElementById("bookNowButton");
 var cancelButton = document.getElementById("cancelButton");
 var estimate = document.querySelector(".new-trip-cost-estimator");
-var addTripConfirmation = document.querySelector(".add-trip-confirmation");
 
 /*~~~~~~~~GLOBAL VARIABLES~~~~~~~*/
 let year = "2022";
@@ -41,7 +39,6 @@ cancelButton.addEventListener('click', resetForm);
 //
 // const id = getRandomID();
 const id = 3;
-console.log("traveler id: ", id)
 
 /*~~~~~~~~FUNCTIONS~~~~~~~*/
 function getData() {
@@ -145,12 +142,6 @@ function saveNewTrip(event) {
       createTripCards();
       resetForm();
       window.location.reload();
-      // setTimeout(() => {
-      //   addTripConfirmation.innerHTML = `Trip with id #${newTrip.id} successfully posted`, 10000
-      // })
-    // }).catch(error => {
-    //   addTripConfirmation.innerHTML = "There was an error booking your trip";
-    //   console.log(error);
     })
 }
 
