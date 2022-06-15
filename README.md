@@ -14,7 +14,7 @@
 ## Project Overview
 The Travel Tracker is a way for a user store all their travel adventures in one place. It allows the user to select a date, number of travelers, trip duration, and destination to get an estimate of how much the trip will cost. Once the user clicks `Book Now!` they will see their new, upcoming trip with a "pending" status.
 
-[![travel-tracker-giphy](https://giphy.com/embed/jUzaQR4veX6KKL8FQg)
+![travel-tracker-giphy](https://media.giphy.com/media/ZO8owBd15UIbtZXaXo/giphy.gif)
 
 The [Turing School of Software and Design](https://turing.edu/) provided a project spec sheet for students to follow, which can be found [here](https://frontend.turing.edu/projects/travel-tracker.html).
 
