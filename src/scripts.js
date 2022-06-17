@@ -7,7 +7,8 @@ import Destination from './Destination';
 /*~~~~~~~~QUERY SELECTORS~~~~~~~*/
 var greeting = document.querySelector(".greeting");
 var catchError = document.querySelector(".catch-error");
-var tripCardContainer = document.querySelector(".all-trip-cards-container");
+var pendingTripCardsContainer = document.querySelector(".pending-trip-cards-container");
+var approvedTripsCardContainer = document.querySelector(".approved-trip-cards-container");
 var annualTripSpend = document.querySelector(".annual-dollars-spent");
 var dateInput = document.getElementById("startDate");
 var numTravelers = document.getElementById("numTravelers");
@@ -95,12 +96,14 @@ function renderAnnualSpend() {
 }
 
 function createTripCards() {
-  tripCardContainer.innerHTML = "";
+  pendingTripCardsContainer.innerHTML = "";
+  approvedTripsCardContainer.innerHTML = "";
+  
   const sortedTrips = currentTraveler.myTrips;
   const getTripCards = sortedTrips.forEach(trip => {
     allDestinationsData.forEach(destination => {
-      if (trip.destinationID === destination.id) {
-        tripCardContainer.innerHTML += (
+      if (trip.destinationID === destination.id && trip.status === "pending") {
+        return pendingTripCardsContainer.innerHTML += (
           `<div tabindex="0" class="card-wrapper">
             <div class="card-image">
               <img class="destination-img" src="${destination.image}" alt="${destination.alt}">
@@ -116,9 +119,25 @@ function createTripCards() {
               <h5 class="trip-status">${trip.status}</h5>
             </div>
           </div>`);
+      } else if (trip.destinationID === destination.id && trip.status === "approved") {
+        return approvedTripsCardContainer.innerHTML += (
+          `<div tabindex="0" class="card-wrapper">
+            <div class="card-image">
+              <img class="destination-img" src="${destination.image}" alt="${destination.alt}">
+            </div>
+            <div class="card-body">
+              <div class="trip-info">
+                <h4>${destination.destination}</h4>
+                <div class="date">Date of Trip: ${trip.date}</div>
+                <div class="num-travelers">Travelers: ${trip.travelers}</div>
+                <div class="duration">Duration: ${trip.duration} days</div>
+                <div class="trip-cost">Trip Cost: $${trip.calculateTripCost(allDestinationsData)}</div>
+                <h5 class="trip-status">${trip.status}</h5>
+              </div>
+            </div>
+          </div>`);
       }
     })
-    return tripCardContainer;
   })
   return getTripCards;
 }

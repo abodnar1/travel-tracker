@@ -116,18 +116,24 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* Card Section */
-.all-trip-cards-container {
-  margin: 25px;
+.pending-trip-cards-container,
+.approved-trip-cards-container {
+  margin: 25px 0px 25px 0px;
+  padding: 10px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-wrap: nowrap;
   align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 50vh;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.25);
 }
 
 .card-wrapper {
   margin-top: 25px;
   padding: 5px;
-  height: 300px;
+  margin: 5px;
+  height: 47vh;
   width: 300px;
   box-shadow: 2px 2px 2px grey;
   background-color: #FFFFFF;
@@ -154,7 +160,10 @@ h4 {
   margin: 5px 0px 15px 5px;
 }
 
-.date, .num-travelers, .trip-cost, .duration {
+.date,
+.num-travelers,
+.trip-cost,
+.duration {
   font-size: 14px;
   margin: 5px 0px 0px 5px;
 }
