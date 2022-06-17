@@ -111,7 +111,7 @@ function createTripCards() {
                 <div class="date">Date of Trip: ${trip.date}</div>
                 <div class="num-travelers">Travelers: ${trip.travelers}</div>
                 <div class="duration">Duration: ${trip.duration} days</div>
-                <div class="trip-cost">Trip Cost: ${trip.calculateTripCost(allDestinationsData)}</div>
+                <div class="trip-cost">Trip Cost: $${trip.calculateTripCost(allDestinationsData)}</div>
               </div>
               <h5 class="trip-status">${trip.status}</h5>
             </div>
