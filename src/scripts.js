@@ -24,6 +24,7 @@ var loginPage = document.querySelector(".login");
 var application = document.querySelector(".app");
 var loginErrorMessage = document.querySelector(".login-error-message");
 var loginHeading = document.querySelector(".login-heading");
+var logoutButton = document.getElementById("logoutButton");
 
 /*~~~~~~~~GLOBAL VARIABLES~~~~~~~*/
 let year = "2022";
@@ -41,6 +42,7 @@ durationInput.addEventListener('keyup', checkBookingFields);
 destinationInput.addEventListener('input', checkBookingFields);
 bookNowButton.addEventListener('click', saveNewTrip);
 cancelButton.addEventListener('click', resetForm);
+logoutButton.addEventListener('click', logout);
 
 /*~~~~~~~~FUNCTIONS~~~~~~~*/
 function validateLogin(event) {
@@ -56,7 +58,8 @@ function validateLogin(event) {
     application.classList.remove("hidden");
     getData();
   } else {
-    loginErrorMessage.innerHTML = "The Username and Password don't match our records, please check them and try logging in again."
+    loginErrorMessage.innerHTML = "The Username and Password don't match our records, please check them and try logging in again.";
+    resetLogin();
   }
 }
 
@@ -190,6 +193,11 @@ function resetForm() {
   destinationInput.value = "";
 }
 
+function resetLogin() {
+  usernameInput.value = "";
+  passwordInput.value = "";
+}
+
 function checkBookingFields() {
   if (dateInput.value !== "" && numTravelers.value !== "" &&
     durationInput.value !== "" && destinationInput.value !== "") {
@@ -200,4 +208,12 @@ function checkBookingFields() {
     bookNowButton.disabled = true;
     bookNowButton.classList.add('disable');
   }
+}
+
+function logout(event) {
+  loginPage.classList.remove("hidden");
+  loginHeading.classList.remove("hidden");
+  application.classList.add("hidden");
+  loginErrorMessage.innerHTML = "";
+  resetLogin();
 }

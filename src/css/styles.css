@@ -70,6 +70,17 @@ input[type=number]::-webkit-outer-spin-button {
   text-align: center;
 }
 
+.logout-button-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.logout-button {
+  margin: 15px;
+  padding: 5px;
+  cursor: pointer;
+}
+
 .bookings-wrapper {
   background: url("../images/travel-background-unsplash.png") no-repeat;
   background-position: 50% 50%;
