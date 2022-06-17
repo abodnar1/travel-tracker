@@ -17,7 +17,7 @@
         <p class="login-error-message"></p>
         <input type="text" id="username" placeholder="username" required/><br>
         <label for="username"></label><br>
-        <input type="text" id="password" placeholder="password" required/><br>
+        <input type="password" id="password" placeholder="password" required/><br>
         <label for="password"></label><br>
         <button type"submit" class="login-button" id="loginButton">Login</button>
       </form>
@@ -25,6 +25,9 @@
   </section>
   <section class="app hidden">
     <header>
+      <div class="logout-button-container">
+        <button type"submit" class="logout-button" id="logoutButton">Logout</button>
+      </div>
       <h1>Travel Tracker</h1>
       <h2 class="greeting"></h2>
       <h3 class="annual-dollars-spent"></div>
@@ -46,12 +49,13 @@
         </div>
       </form>
       <div class="messages">
-        <p class="new-trip-cost-estimator">See your estimate here (fees included)</p>
+        <p class="new-trip-cost-estimator">Please fill out the form to see your trip estimate!</p>
         <p class="add-trip-confirmation"></p>
       </div>
     </section>
     <main>
-      <section class="all-trip-cards-container"></section>
+      <section class="pending-trip-cards-container"></section>
+      <section class="approved-trip-cards-container"></section>
     </main>
   </section>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->

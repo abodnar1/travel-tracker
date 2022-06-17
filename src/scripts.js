@@ -7,7 +7,8 @@ import Destination from './Destination';
 /*~~~~~~~~QUERY SELECTORS~~~~~~~*/
 var greeting = document.querySelector(".greeting");
 var catchError = document.querySelector(".catch-error");
-var tripCardContainer = document.querySelector(".all-trip-cards-container");
+var pendingTripCardsContainer = document.querySelector(".pending-trip-cards-container");
+var approvedTripsCardContainer = document.querySelector(".approved-trip-cards-container");
 var annualTripSpend = document.querySelector(".annual-dollars-spent");
 var dateInput = document.getElementById("startDate");
 var numTravelers = document.getElementById("numTravelers");
@@ -23,6 +24,7 @@ var loginPage = document.querySelector(".login");
 var application = document.querySelector(".app");
 var loginErrorMessage = document.querySelector(".login-error-message");
 var loginHeading = document.querySelector(".login-heading");
+var logoutButton = document.getElementById("logoutButton");
 
 /*~~~~~~~~GLOBAL VARIABLES~~~~~~~*/
 let year = "2022";
@@ -40,6 +42,7 @@ durationInput.addEventListener('keyup', checkBookingFields);
 destinationInput.addEventListener('input', checkBookingFields);
 bookNowButton.addEventListener('click', saveNewTrip);
 cancelButton.addEventListener('click', resetForm);
+logoutButton.addEventListener('click', logout);
 
 /*~~~~~~~~FUNCTIONS~~~~~~~*/
 function validateLogin(event) {
@@ -55,7 +58,8 @@ function validateLogin(event) {
     application.classList.remove("hidden");
     getData();
   } else {
-    loginErrorMessage.innerHTML = "The Username and Password don't match our records, please check them and try logging in again."
+    loginErrorMessage.innerHTML = "The Username and Password don't match our records, please check them and try logging in again.";
+    resetLogin();
   }
 }
 
@@ -95,33 +99,55 @@ function renderAnnualSpend() {
 }
 
 function createTripCards() {
-  tripCardContainer.innerHTML = "";
+  pendingTripCardsContainer.innerHTML = "";
+  approvedTripsCardContainer.innerHTML = "";
+
   const sortedTrips = currentTraveler.myTrips;
   const getTripCards = sortedTrips.forEach(trip => {
     allDestinationsData.forEach(destination => {
-      if (trip.destinationID === destination.id) {
-        tripCardContainer.innerHTML += (
+      if (trip.destinationID === destination.id && trip.status === "pending") {
+        return pendingTripCardsContainer.innerHTML += (
           `<div tabindex="0" class="card-wrapper">
-          <div class="card-image">
-            <img class="destination-img" src="${destination.image}" alt="${destination.alt}">
-          </div>
-          <div class="card-body">
-            <div class="destination-name-info">
-              <h4>${destination.destination}</h4>
-              <div class="date">${trip.date}</div>
+            <div class="card-image">
+              <img class="destination-img" src="${destination.image}" alt="${destination.alt}">
             </div>
-            <h5 class="trip-status">${trip.status}</h5>
-          </div>
-        </div>`);
+            <div class="card-body">
+              <div class="trip-info">
+                <h4>${destination.destination}</h4>
+                <div class="date">Date of Trip: ${trip.date}</div>
+                <div class="num-travelers">Travelers: ${trip.travelers}</div>
+                <div class="duration">Duration: ${trip.duration} days</div>
+                <div class="trip-cost">Trip Cost: $${trip.calculateTripCost(allDestinationsData)}</div>
+              </div>
+              <h5 class="trip-status">${trip.status}</h5>
+            </div>
+          </div>`);
+      } else if (trip.destinationID === destination.id && trip.status === "approved") {
+        return approvedTripsCardContainer.innerHTML += (
+          `<div tabindex="0" class="card-wrapper">
+            <div class="card-image">
+              <img class="destination-img" src="${destination.image}" alt="${destination.alt}">
+            </div>
+            <div class="card-body">
+              <div class="trip-info">
+                <h4>${destination.destination}</h4>
+                <div class="date">Date of Trip: ${trip.date}</div>
+                <div class="num-travelers">Travelers: ${trip.travelers}</div>
+                <div class="duration">Duration: ${trip.duration} days</div>
+                <div class="trip-cost">Trip Cost: $${trip.calculateTripCost(allDestinationsData)}</div>
+                <h5 class="trip-status">${trip.status}</h5>
+              </div>
+            </div>
+          </div>`);
       }
     })
-    return tripCardContainer;
   })
   return getTripCards;
 }
 
 function updateDestinationsSelectionMenu() {
   destinationInput.innerHTML = `<option value="" disabled selected>Please choose a destination?</option>`;
+  allDestinationsData.sort((a, b) => a.destination.localeCompare(b.destination));
   allDestinationsData.forEach(destination => {
     destinationInput.innerHTML +=
       `<option value="${destination.id}" class="destination-name">${destination.destination}</option>`;
@@ -160,11 +186,16 @@ function saveNewTrip() {
 }
 
 function resetForm() {
-  estimate.innerHTML = "See your estimate here (fees included)";
+  estimate.innerHTML = "Please fill out the form to see your trip estimate!";
   dateInput.value = "";
   numTravelers.value = "";
   durationInput.value = ""
   destinationInput.value = "";
+}
+
+function resetLogin() {
+  usernameInput.value = "";
+  passwordInput.value = "";
 }
 
 function checkBookingFields() {
@@ -177,4 +208,12 @@ function checkBookingFields() {
     bookNowButton.disabled = true;
     bookNowButton.classList.add('disable');
   }
+}
+
+function logout(event) {
+  loginPage.classList.remove("hidden");
+  loginHeading.classList.remove("hidden");
+  application.classList.add("hidden");
+  loginErrorMessage.innerHTML = "";
+  resetLogin();
 }
