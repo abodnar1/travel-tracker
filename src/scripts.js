@@ -125,6 +125,7 @@ function createTripCards() {
 
 function updateDestinationsSelectionMenu() {
   destinationInput.innerHTML = `<option value="" disabled selected>Please choose a destination?</option>`;
+  allDestinationsData.sort((a, b) => a.destination.localeCompare(b.destination));
   allDestinationsData.forEach(destination => {
     destinationInput.innerHTML +=
       `<option value="${destination.id}" class="destination-name">${destination.destination}</option>`;
