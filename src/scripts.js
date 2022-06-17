@@ -98,7 +98,7 @@ function renderAnnualSpend() {
 function createTripCards() {
   pendingTripCardsContainer.innerHTML = "";
   approvedTripsCardContainer.innerHTML = "";
-  
+
   const sortedTrips = currentTraveler.myTrips;
   const getTripCards = sortedTrips.forEach(trip => {
     allDestinationsData.forEach(destination => {
@@ -183,7 +183,7 @@ function saveNewTrip() {
 }
 
 function resetForm() {
-  estimate.innerHTML = "See your estimate here (fees included)";
+  estimate.innerHTML = "Please fill out the form to see your trip estimate!";
   dateInput.value = "";
   numTravelers.value = "";
   durationInput.value = ""

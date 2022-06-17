@@ -104,7 +104,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .new-trip-cost-estimator {
   background-color: #E7E7E7;
-  height: 150px;
+  height: 75px;
+  width: 335px;
   display: flex;
   align-items: center;
   padding: 20px;
