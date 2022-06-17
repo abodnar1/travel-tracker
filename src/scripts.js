@@ -102,17 +102,20 @@ function createTripCards() {
       if (trip.destinationID === destination.id) {
         tripCardContainer.innerHTML += (
           `<div tabindex="0" class="card-wrapper">
-          <div class="card-image">
-            <img class="destination-img" src="${destination.image}" alt="${destination.alt}">
-          </div>
-          <div class="card-body">
-            <div class="destination-name-info">
-              <h4>${destination.destination}</h4>
-              <div class="date">${trip.date}</div>
+            <div class="card-image">
+              <img class="destination-img" src="${destination.image}" alt="${destination.alt}">
             </div>
-            <h5 class="trip-status">${trip.status}</h5>
-          </div>
-        </div>`);
+            <div class="card-body">
+              <div class="trip-info">
+                <h4>${destination.destination}</h4>
+                <div class="date">Date of Trip: ${trip.date}</div>
+                <div class="num-travelers">Travelers: ${trip.travelers}</div>
+                <div class="duration">Duration: ${trip.duration} days</div>
+                <div class="trip-cost">Trip Cost: ${trip.calculateTripCost(allDestinationsData)}</div>
+              </div>
+              <h5 class="trip-status">${trip.status}</h5>
+            </div>
+          </div>`);
       }
     })
     return tripCardContainer;
