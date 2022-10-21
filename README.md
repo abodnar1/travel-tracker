@@ -20,7 +20,7 @@ The [Turing School of Software and Design](https://turing.edu/) provided a proje
 
 
 ## Learning Goals
-* Use Object Oriented Planning (OOP) to drive the design of the application and the code
+* Use Object Oriented Programming (OOP) to drive the design of the application and the code
 * Work with an API to send and receive data
 * Solidify the code review process
 * Create a robust test suite that thoroughly tests all functionality of a client-side application
