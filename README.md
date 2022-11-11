@@ -1,29 +1,31 @@
 # Travel Tracker
 
 ## Table of Contents
-- [Project Overview](#project-overview)
-- [Learning Goals](#learning-goals)
+- [Summary](#summary)
+- [Setup](#setup)
 - [Technologies and Tools](#technologies-and-tools)
+- [Learning Goals](#learning-goals)
 - [Project Reflections](#project-reflections)
 - [Roadmap](#roadmap)
-- [Setup](#setup)
 - [Contributors](#contributors)
-- [Sources](#sources)
 
 
-## Project Overview
-The Travel Tracker is a way for a user store all their travel adventures in one place. It allows the user to select a date, number of travelers, trip duration, and destination to get an estimate of how much the trip will cost. Once the user clicks `Book Now!` they will see their new, upcoming trip with a "pending" status.
+## Summary
+The Travel Tracker is a way for a user to store all their travel adventures in one place. It allows the user to select a date, number of travelers, trip duration, and destination to get an estimate of how much the trip will cost. Once the user clicks `Book Now!` they will see their new, upcoming trip with a "pending" status.
 
 [travel-tracker-demo](https://user-images.githubusercontent.com/99693359/175441025-4b54f384-a7d2-412b-bee6-cf58e33d8d0c.mp4)
 
-The [Turing School of Software and Design](https://turing.edu/) provided a project spec sheet for students to follow, which can be found [here](https://frontend.turing.edu/projects/travel-tracker.html).
 
-
-## Learning Goals
-* Use Object Oriented Programming (OOP) to drive the design of the application and the code
-* Work with an API to send and receive data
-* Solidify the code review process
-* Create a robust test suite that thoroughly tests all functionality of a client-side application
+## Setup
+1. Fork this Repo
+2. Clone it down to your machine
+3. `cd` into the root of the project directory
+4. run `npm install`
+5. To verify that it is setup correctly, run `npm start` in your terminal to start the local server. You will see a bunch of lines output to your terminal. One of those lines will be something like: `Project is running at http://localhost:8080/`.
+6. Go to `http://localhost:8080/` in your browser to view the code running in the browser.
+7. Enter `control + c` in your terminal to stop the local server at any time.
+8. You will also need to clone down [this](https://github.com/turingschool-examples/travel-tracker-api.git) local api server outside of the Travel Tracker directory, follow the installation instructions, and have it running in a separate tab in your terminal each time you run the client. 
+9. To use the site, enter the username `traveler50` and the password is `travel`.
 
 
 ## Technologies and Tools
@@ -37,13 +39,20 @@ The [Turing School of Software and Design](https://turing.edu/) provided a proje
 * GitHub Projects Board/Issues
 
 
+## Learning Goals
+* Use Object Oriented Programming (OOP) to drive the design of the application and the code
+* Work with an API to send and receive data
+* Solidify the code review process
+* Create a robust test suite that thoroughly tests all functionality of a client-side application
+
+
 ## Project Reflections
-#### Wins
+#### Wins:
 * The application is 100% tabbable and passes the Lighthouse accessibility audit at 100%
 * Writing and executing a Fetch API POST request for the first time by myself
 * Hitting minimum viable product for a complex project within a short time frame
 
-#### Challenges
+#### Challenges:
 * I learned just how important it is to have a clear blueprint before building class structures. I found myself revisiting class structures multiple times to remove properties and methods that were not in use.
 * I was able to create test suites that tested multiple data points but found it difficult to remember to test for "sad" paths.
 * After implementing the login page, I found that when I wanted to save a trip for the traveler/POST a trip to the server, it would refresh my page and move me back to the login screen. The time it took to troubleshoot could have been avoided had the initial setup of the classes been mapped out a little better.
@@ -58,23 +67,10 @@ Future features could include:
 * Update CSS on the login page and include more information on each trip card
 
 
-## Setup
-1. Fork this Repo
-2. Clone it down to your machine
-3. `cd` into the root of the project directory
-4. run `npm install`
-5. To verify that it is setup correctly, run `npm start` in your terminal to start the local server. You will see a bunch of lines output to your terminal. One of those lines will be something like: `Project is running at http://localhost:8080/`.
-6. Go to `http://localhost:8080/` in your browser to view the code running in the browser.
-7. Enter `control + c` in your terminal to stop the local server at any time.
-8. You will also need to clone down [this](https://github.com/turingschool-examples/travel-tracker-api.git) local api server outside of the Travel Tracker directory, follow the installation instructions, and have it running in a separate tab in your terminal each time you run the client. 
-
-
 ## Contributors
 Amber Bodnar
 * [LinkedIn](https://www.linkedin.com/in/amberbodnar/)
 * [GitHub](https://github.com/abodnar1)
 
 
-## Sources
-* Mentors - [Matt Roden](https://github.com/Matt-Roden) & [Lola Dolinsky](https://github.com/lo-la-do-li)
-* My peers in Cohort 2203
+*The [Turing School of Software and Design](https://turing.edu/) provided a project spec sheet for students to follow, which can be found [here](https://frontend.turing.edu/projects/travel-tracker.html).*
