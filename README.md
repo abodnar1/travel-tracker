@@ -25,7 +25,7 @@ The Travel Tracker is a way for a user to store all their travel adventures in o
 6. Go to `http://localhost:8080/` in your browser to view the code running in the browser.
 7. Enter `control + c` in your terminal to stop the local server at any time.
 8. You will also need to clone down [this](https://github.com/turingschool-examples/travel-tracker-api.git) local api server outside of the Travel Tracker directory, follow the installation instructions, and have it running in a separate tab in your terminal each time you run the client. 
-9. To use the site, enter the username `traveler50` and the password is `travel`.
+9. To use the site, enter the username `traveler50` and the password is `travel`. Replace `50` with any number between 1 and 50 to see other users.
 
 
 ## Technologies and Tools
