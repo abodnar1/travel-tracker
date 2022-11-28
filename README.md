@@ -1,6 +1,4 @@
 # Travel Tracker
-Visit the deployed site [here](https://abodnar1.github.io/travel-tracker/).
-<br/> To login, enter username `traveler50` and the password is `travel`. Replace `50` with any number between 1 and 50 to see other users.
 
 ## Table of Contents
 - [Summary](#summary)
@@ -29,6 +27,9 @@ The Travel Tracker is a way for a user to store all their travel adventures in o
 8. You will also need to clone down [this](https://github.com/turingschool-examples/travel-tracker-api.git) local api server outside of the Travel Tracker directory, follow the installation instructions, and have it running in a separate tab in your terminal each time you run the client. 
 9. To use the site, enter username `traveler50` and the password is `travel`. Replace `50` with any number between 1 and 50 to see other users.
 
+#### To View the Deployed Site:
+1. Perform step #8 from the above setup instructions.
+2. Visit the deployed site [here](https://abodnar1.github.io/travel-tracker/).
 
 ## Technologies and Tools
 * Vanilla JavaScript
